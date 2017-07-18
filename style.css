@@ -13,7 +13,9 @@ header {
 }
 
 img {
-  width:50%;
+  padding-top:50px;
+  width:30%;
+  height:30%;
 }
 
 #weatherinfo {
