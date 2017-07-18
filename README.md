@@ -17,5 +17,4 @@ Open a port on your web browser:
 
 http://localhost:8080/
 
-
-https://github.com/helenemartin/whetherornot/blob/master/screenshot.jpg 
+![Result](/path/to/screenshot.jpg "Whether or Not")
