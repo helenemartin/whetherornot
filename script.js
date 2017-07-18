@@ -27,6 +27,10 @@ function retrieveWeather(){
             $("#temperatureMax").text("Max temp :" + dataForToday.temperatureMax)
         }
 
+        if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
+            $("#precipProbability").text("Chance of Rain :" + dataForToday.precipProbability )
+        }
+
                 
     // console.log(data);
         // });
