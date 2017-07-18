@@ -17,4 +17,4 @@ Open a port on your web browser:
 
 http://localhost:8080/
 
-![Result](/path/to/screenshot.jpg "Whether or Not")
+![Result](/img/screenshot.jpg "Whether or Not")
