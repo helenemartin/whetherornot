@@ -29,8 +29,11 @@ function retrieveWeather(){
 
         if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
             $("#precipProbability").text("Chance of Rain :" + dataForToday.precipProbability ) 
-            if (dataForToday.precipProbability > 0.2) {
-                
+            if (dataForToday.precipProbability < 0.2) {
+                $("#clothing").attr("src", "/img/swimsuit.jpg")
+            }
+            else{
+                $("#clothing").attr("src", "/img/burber.jpg")
             }
 
         }
