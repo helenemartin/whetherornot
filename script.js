@@ -6,18 +6,26 @@ function retrieveWeather(){
 
     }).done(function(data){
 
-        var t = data.daily.data[0].time;
+        var dataForToday = data.daily.data[0];
+
+        var t = dataForToday.time;
         
 
         var date = new Date(t*1000);
 
         console.log("using data for:" , date)
 
+
             // data.categories.forEach(function(category) {
             //     $("#genres").append("<li id=\"" + category.key + "\">" + category.title + "</li>");
 
             //     console.log(category.title);
 
+        $("#todaysDate").text("Today's date :" + date)
+
+        if (dataForToday.temperatureMax !== undefined && dataForToday.temperatureMax !== null) {
+            $("#temperatureMax").text("Max temp :" + dataForToday.temperatureMax)
+        }
 
                 
     // console.log(data);
