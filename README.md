@@ -4,7 +4,11 @@
 
 To run this app:
 
-Git clone this repository on your computer.
+Git clone this repository on your computer:
+
+https://github.com/helenemartin/whetherornot.git
+
+Then cd into the file:
 
 -cd whetherornot
 
