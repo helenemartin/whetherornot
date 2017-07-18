@@ -12,6 +12,10 @@ header {
   border-bottom: 1px solid #e5e2e0;
 }
 
+img {
+  width:50%;
+}
+
 #weatherinfo {
   font-family: helvetica, Arial, sans-serif;
   margin: 100px;
