@@ -1,4 +1,6 @@
-What should I wear today? I don't want to get soaked... pretty please
+# Whether or Not
+
+## What should I wear today? I don't want to get soaked... pretty please
 
 To run this app:
 
