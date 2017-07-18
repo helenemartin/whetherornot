@@ -5,7 +5,13 @@ function retrieveWeather(){
         dataType: 'jsonp'
 
     }).done(function(data){
+
+        var t = data.daily.data[0].time;
         
+
+        var date = new Date(t*1000);
+
+        console.log("using data for:" , date)
 
             // data.categories.forEach(function(category) {
             //     $("#genres").append("<li id=\"" + category.key + "\">" + category.title + "</li>");
