@@ -1,0 +1,19 @@
+body {
+  font-family: Palatino, Arial, sans-serif;
+  margin: 0px auto;
+  font-size: 14px;
+  color: #666666;
+  font-size: 16px;
+}
+
+header {
+  text-align: center;
+  background-color: #fdfdfd;
+  border-bottom: 1px solid #e5e2e0;
+}
+
+#weatherinfo {
+  font-family: helvetica, Arial, sans-serif;
+  margin: 100px;
+  text-align:center;
+}

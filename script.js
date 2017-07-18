@@ -16,10 +16,7 @@ function retrieveWeather(){
         console.log("using data for:" , date)
 
 
-            // data.categories.forEach(function(category) {
-            //     $("#genres").append("<li id=\"" + category.key + "\">" + category.title + "</li>");
 
-            //     console.log(category.title);
 
         $("#todaysDate").text("Today's date :" + date)
 
@@ -38,10 +35,6 @@ function retrieveWeather(){
 
         }
 
-                
-    // console.log(data);
-        // });
-  
 
         
     }).fail(function(){
