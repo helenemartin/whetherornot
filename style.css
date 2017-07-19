@@ -1,9 +1,8 @@
 body {
-  font-family: Palatino, Arial, sans-serif;
+  font-family: Futura, Arial, sans-serif;
   margin: 0px auto;
   font-size: 14px;
   color: #666666;
-  font-size: 16px;
 }
 
 header {
@@ -23,7 +22,9 @@ img {
 }
 
 #weatherinfo {
-  font-family: helvetica, Arial, sans-serif;
+  font-family: Gill Sans, Arial, sans-serif;
+  font-size: 15px;
   margin: 20px;
   text-align:center;
+  line-height: 1.4em;
 }
