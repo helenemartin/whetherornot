@@ -12,14 +12,18 @@ header {
   border-bottom: 1px solid #e5e2e0;
 }
 
+h1 {
+  font-size:50px;
+}
+
 img {
-  padding-top:50px;
+  padding-top:10px;
   width:30%;
   height:30%;
 }
 
 #weatherinfo {
   font-family: helvetica, Arial, sans-serif;
-  margin: 100px;
+  margin: 20px;
   text-align:center;
 }
