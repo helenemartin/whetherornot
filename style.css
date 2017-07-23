@@ -8,7 +8,7 @@ body {
 header {
   text-align: center;
   background-color: #fdfdfd;
-  border-bottom: 1px solid #e5e2e0;
+  border-bottom: 2px dotted #e5e2e0;
 }
 
 h1 {
