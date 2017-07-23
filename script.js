@@ -1,6 +1,6 @@
 function retrieveWeather(){
     $.ajax({
-        url:"https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/51.519271, -0.093146",
+        url:"http://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/51.519271, -0.093146",
         // dataType: 'json'
         dataType: 'jsonp'
 
