@@ -2,7 +2,7 @@ function retrieveWeather(){
     $.ajax({
         url:"https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/51.519271, -0.093146",
         // dataType: 'json'
-        dataType: 'json'
+        dataType: 'jsonp'
 
     }).done(function(data){
 
@@ -27,7 +27,7 @@ function retrieveWeather(){
         if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
             $("#precipProbability").text("Chance of Rain :" + dataForToday.precipProbability ) 
             if (dataForToday.precipProbability < 0.2) {
-                $("#clothing").attr("src", "/img/swimsuit.jpg")
+                $("#clothing").attr("src", "https://github.com/helenemartin/whetherornot/blob/master/img/swimsuit.jpg")
             }
             else{
                 $("#clothing").attr("src", "/img/burber.jpg")
