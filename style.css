@@ -1,19 +1,30 @@
 body {
-  font-family: Palatino, Arial, sans-serif;
+  font-family: Futura, Arial, sans-serif;
   margin: 0px auto;
   font-size: 14px;
   color: #666666;
-  font-size: 16px;
 }
 
 header {
   text-align: center;
   background-color: #fdfdfd;
-  border-bottom: 1px solid #e5e2e0;
+  border-bottom: 2px dotted #e5e2e0;
+}
+
+h1 {
+  font-size:50px;
+}
+
+img {
+  padding-top:10px;
+  width:30%;
+  height:30%;
 }
 
 #weatherinfo {
-  font-family: helvetica, Arial, sans-serif;
-  margin: 100px;
+  font-family: Gill Sans, Arial, sans-serif;
+  font-size: 15px;
+  margin: 20px;
   text-align:center;
+  line-height: 1.4em;
 }
