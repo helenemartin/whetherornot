@@ -34,14 +34,7 @@ function retrieveWeather(){
             }
 
         }
-
-
-        
-    }).fail(function(){
-
-    }).always(function(){
     
-
 
     });
 
