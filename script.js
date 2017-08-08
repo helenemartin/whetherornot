@@ -4,9 +4,9 @@ var months = ['January','February','March','April','May','June','July','August',
 
 var advice = {
     "0.10": "very likely",
-    "0.64": "raining", 
+    "0.64": "likely", 
     "0.80": "unlikely",
-    "1": "no worries",
+    "1": "none",
 }
 function retrieveWeather(){
     $.ajax({
@@ -46,29 +46,53 @@ function retrieveWeather(){
 
         console.log(zone);
 
-        $("#location").text("You are in : " + city[1])
-        $("#todaysDate").text("Today's date : " + formatedDate)
+        $("#location").text("You are in " + city[1])
+        $("#todaysDate").text("Today's date: " + formatedDate)
 
         if (dataForToday.temperatureMax !== undefined && dataForToday.temperatureMax !== null) {
 
             var tempcelsius = Math.round((dataForToday.temperatureMax-32)/1.8);
 
-            $("#temperatureMax").text("Max temp :" + tempcelsius + " degrees");
+            $("#temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
         }
 
         if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
-            
+            debugger
             var message = advice;
-            console.log(advice);
-            var advicestring = advice[dataForToday.precipProbability];
+            console.log('advice' + "helene");
+            var advicestring = parseFloat([dataForToday.precipProbability]);
+            console.log(advicestring);
+            
 
-            $("#precipProbability").text("Chance of Rain :" + advicestring ) 
-            if (dataForToday.precipProbability < 0.2) {
-                $("#clothing").attr("src", "img/swimsuit.jpg")
+            switch(true) {
+
+                case advicestring <= 0.1:
+                    $("#precipProbability").text("Chance of rain: " + "very likely" );
+                    $("#clothing").attr("src", "img/burber.jpg");
+                    
+                    break;
+                case advicestring < 0.65:
+                    $("#precipProbability").text("Chance of rain: " + "likely" );
+                    $("#clothing").attr("src", "img/swimsuit.jpg");
+                    
+                    break;
+                case advicestring < 0.81:
+                    $("#precipProbability").text("Chance of rain: " + "unlikely" );
+                    $("#clothing").attr("src", "img/swimsuit.jpg");
+                    break;
+                case advicestring <= 1:
+                    $("#precipProbability").text("Chance of rain: " + "none" );
+                    $("#clothing").attr("src", "img/swimsuit.jpg");
+                    break;
+
+
+
+                default:
+                    console.log("no values");
+
+
             }
-            else{
-                $("#clothing").attr("src", "img/burber.jpg")
-            }
+
 
         }
     
