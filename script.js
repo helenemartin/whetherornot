@@ -73,7 +73,7 @@ function retrieveWeather(){
                     break;
                 case advicestring < 0.65:
                     $("#precipProbability").text("Chance of rain: " + "likely" );
-                    $("#clothing").attr("src", "img/swimsuit.jpg");
+                    $("#clothing").attr("src", "img/burber.jpg");
                     
                     break;
                 case advicestring < 0.81:
