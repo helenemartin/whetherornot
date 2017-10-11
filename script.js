@@ -8,6 +8,15 @@ var advice = {
     "0.80": "unlikely",
     "1": "none",
 }
+
+function extractCity(data){
+
+    var zone = data.timezone;
+    var city = zone.split("/");
+    return city;
+}
+
+
 function retrieveWeather(){
     $.ajax({
         url:"https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/51.519271, -0.093146",
@@ -39,12 +48,9 @@ function retrieveWeather(){
        
 
         console.log("using data for:" , formatedDate)
+        var city = extractCity(data);
+        
 
-        var zone = data.timezone;
-        var city = zone.split("/");
-
-
-        console.log(zone);
 
         $("#location").text("You are in " + city[1])
         $("#todaysDate").text("Today's date: " + formatedDate)
@@ -57,9 +63,9 @@ function retrieveWeather(){
         }
 
         if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
-            debugger
+           
             var message = advice;
-            console.log('advice' + "helene");
+            // console.log('advice' + "helene");
             var advicestring = parseFloat([dataForToday.precipProbability]);
             console.log(advicestring);
             
