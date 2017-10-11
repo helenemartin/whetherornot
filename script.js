@@ -2,6 +2,18 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+function geoLocation() {
+    navigator.geolocation.getCurrentPosition(
+        function(location){
+            debugger
+            var{latitude, longitude}=location.coords;
+            console.log("bla");
+        },
+        function(error) {
+            debugger
+        }
+    );
+}
 
 function clothingRecommandation(data){
     var advice = {
@@ -88,4 +100,5 @@ function retrieveWeather(){
 }
 
 retrieveWeather()
+geoLocation()
 
