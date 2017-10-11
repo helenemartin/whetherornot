@@ -2,17 +2,11 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-function geoLocation() {
-    navigator.geolocation.getCurrentPosition(
-        function(location){
-            debugger
-            var{latitude, longitude}=location.coords;
-            console.log("bla");
-        },
-        function(error) {
-            debugger
-        }
-    );
+function geoLocation(renderFunction) {
+    navigator.geolocation.getCurrentPosition(function(location){
+        var{latitude, longitude}=location.coords;
+        renderFunction(latitude, longitude);
+    });
 }
 
 function clothingRecommandation(data){
@@ -72,9 +66,9 @@ function formatTemperature(data){
     }
 }
 
-function retrieveWeather(){
+function retrieveWeather(latitude, longitude){
     $.ajax({
-        url:"https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/51.519271, -0.093146",
+        url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude}`,
         // dataType: 'json'
         dataType: 'jsonp'
 
@@ -99,6 +93,5 @@ function retrieveWeather(){
 
 }
 
-retrieveWeather()
-geoLocation()
+geoLocation(retrieveWeather)
 
