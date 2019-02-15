@@ -6,20 +6,25 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
   </head>
   <body>
-    <header>
-      <h1>Whether orNot</h1>
-    </header>
-    <div id="weatherinfo">
-      <div id="location"></div>
-      <div id="todaysDate"></div>
-      <div id="temperatureMax"></div>
-      <div id="precipProbability"></div>
-      <div id="suggestions"></div>
-      <p>You can wear this</p>
-      <img id="clothing" src="">
+    <div class="wrapper">
+      <header>
+        <h1>Whether or Not</h1>
+      </header>
+        <div id="forecast">
+          <div class="location"></div>
+          <div class="todaysDate"></div>
+          <div class="temperatureMax"></div>
+          <div class="precipProbability"></div>
+          <div class="suggestions"></div> 
+        </div>
+        <div id="clothes">
+          <p>You can wear this</p>
+          <img class="clothing" src="">
+          <button id="clickButton">Show tomorrow</button>
+        </div>
+      <footer>
+      </footer>
     </div>
-    <footer>
-    </footer>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

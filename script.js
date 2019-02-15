@@ -2,11 +2,13 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-function geoLocation(renderFunction) {
-    navigator.geolocation.getCurrentPosition(function(location){
-        var{latitude, longitude}=location.coords;
-        renderFunction(latitude, longitude);
-    });
+function geoLocation(renderFunction, when, whereToPut, clothes) {
+    function thingToDoWhenWeKnowWhereWeAre(location) {
+        var { latitude, longitude } = location.coords;
+        renderFunction(latitude, longitude, when, whereToPut, clothes);
+    }
+
+    navigator.geolocation.getCurrentPosition(thingToDoWhenWeKnowWhereWeAre);
 }
 
 function clothingRecommandation(data){
@@ -25,10 +27,10 @@ function clothingRecommandation(data){
                 return {text:"Very likely", image: "img/burber.jpg"}
                 break;
             case advicestring < 0.65:
-                return {text:"Likely", image: "img/burber.jpg"}
+                return {text:"Likely", image: "img/inesfressange.jpg"}
                 break;
             case advicestring < 0.81:
-                return {text:"Unlikely", image: "img/swimsuit.jpg"}
+                return {text:"Unlikely", image: "img/inesfressange.jpg"}
                 break;
             case advicestring <= 1:
                 return {text:"none", image: "img/swimsuit.jpg"}
@@ -66,32 +68,73 @@ function formatTemperature(data){
     }
 }
 
-function retrieveWeather(latitude, longitude){
+function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
+    //var time = '2019-02-12T21:00:00';
+    var whenNumber = Math.ceil(when.getTime() / 1000);
     $.ajax({
-        url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude}`,
+        url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude},${whenNumber}`,
         // dataType: 'json'
         dataType: 'jsonp'
 
     }).done(function(data){
 
-    
         var city = extractCity(data);
         var formatedDate = extractDate(data);
         var tempcelsius = formatTemperature(data);
         var x = clothingRecommandation(data);
         
-
-        $("#location").text("You are in " + city)
-        $("#todaysDate").text("Today's date: " + formatedDate)
-        $("#temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
-        $("#precipProbability").text("Chance of rain: " + x.text );
-        $("#clothing").attr("src", x.image);
-
         
+        console.log(tomorrow);
+
+        whereToPut.find(".location").text("You are in " + city);
+        whereToPut.find(".todaysDate").text("Today's date: " + formatedDate);
+        whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
+        whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
+        // debugger;
+        clothes.find(".clothing").attr("src", x.image);    
 
     });
 
 }
 
-geoLocation(retrieveWeather)
+function updateButton(){
+    var button = document.querySelector('#clickButton');
+    if (window.currentView == 'today'){
+        window.currentView= 'tomorrow';
+        button.textContent = "Show Tomorrow >";
+
+    } else if (window.currentView == 'tomorrow'){ 
+        window.currentView= 'today';
+        button.textContent = "< Show Today";
+    } 
+}
+
+var today = new Date();
+var tomorrow = new Date();
+tomorrow.setDate(today.getDate()+1);
+
+window.currentView= 'today';
+updateButton()
+
+geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'))
+// geoLocation(retrieveWeather, tomorrow, $('#tomorrow'))
+
+$('#clickButton').click(function(event) {
+    geoLocation(retrieveWeather, tomorrow, $('#forecast'), $('#clothes'));
+    updateButton();
+
+})
+
+// // =================
+
+// function thingToDoWhenClicked() {
+//    console.log("I was clicked!")
+// }
+// document.addEventListener('click', thingToDoWhenClicked);
+
+// // =================
+
+// document.addEventListener('click', function() {
+//    console.log("I was clicked!")
+// });
 
