@@ -23,26 +23,49 @@ img {
   width:20%;
   height:20%;
 }
+.flex-container{
+  padding-top: 20px;
+  display:flex;
+  
+}
 
 #forecast {
   width: 50%;
   float:left;
   font-family: Gill Sans, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin: 20px;
   text-align:center;
-  line-height: 1.4em;
+  line-height: 1.8em;
+  flex-direction: column;
+
+}
+.text {
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 50px;
 }
 
-.clothes-wrapper {
-  position: relative;
+#clothes {
+  width: calc(60% - 40px);
+  flex-direction: column;
 }
+.clothes-wrapper {
+  padding-top: 15px;
+  position:relative;
+}
+
 img.clothing{
   position: relative;
   float: left;
-  width:  15%;
-  height: 15%;
-  background-position: 50% 50%;
+  width:  50%;
+  height: 50%;
+  background-position: 100% 100%;
   background-size: cover;
+}
+button#clickButton {
+  border: 1px solid black;
+  position: absolute;
+  text-align: right;
 }
 

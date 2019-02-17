@@ -87,7 +87,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         console.log(tomorrow);
 
         whereToPut.find(".location").text("You are in " + city);
-        whereToPut.find(".todaysDate").text("Today's date: " + formatedDate);
+        whereToPut.find(".todaysDate").text(formatedDate);
         whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
         whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
         // debugger;
