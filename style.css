@@ -22,7 +22,7 @@ h1 {
 .flex-container{
   padding-top: 20px;
   display:flex;
-  flex-direction: row;  
+  flex-direction: column;  
 }
 
 #forecast {
@@ -33,7 +33,7 @@ h1 {
   margin: 20px;
   text-align:center;
   line-height: 1.8em;
-  flex-direction: row;
+  /*flex-direction: row;*/
 
 }
 .text {
@@ -44,7 +44,7 @@ h1 {
 
 #clothes {
   width: calc(60% - 40px);
-  flex-direction: row;
+
 }
 .clothes-wrapper {
   padding-top: 15px;
@@ -65,12 +65,13 @@ button#clickButton {
   text-align: right;
 }
 
+
 @media (min-width: 800px) {
-  #clothes {
+  .flex-container{
     width: calc(33.3% - 40px);
     height: 200px;
     float: right;
-    flex-direction: column;
+    flex-direction: row;
   }
 
 }
