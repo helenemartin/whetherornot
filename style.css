@@ -20,8 +20,8 @@ h1 {
 
 img {
   padding-top:10px;
-  width:30%;
-  height:30%;
+  width:20%;
+  height:20%;
 }
 
 #forecast {
@@ -32,5 +32,17 @@ img {
   margin: 20px;
   text-align:center;
   line-height: 1.4em;
+}
+
+.clothes-wrapper {
+  position: relative;
+}
+img.clothing{
+  position: relative;
+  float: left;
+  width:  15%;
+  height: 15%;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 

@@ -100,12 +100,12 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 function updateButton(){
     var button = document.querySelector('#clickButton');
     if (window.currentView == 'today'){
-        window.currentView= 'tomorrow';
-        button.textContent = "Show Tomorrow >";
+        window.currentView = 'tomorrow';
+        button.textContent = 'Show Tomorrow >';
 
     } else if (window.currentView == 'tomorrow'){ 
-        window.currentView= 'today';
-        button.textContent = "< Show Today";
+        window.currentView = 'today';
+        button.textContent = '< Show Today';
     } 
 }
 
@@ -113,16 +113,28 @@ var today = new Date();
 var tomorrow = new Date();
 tomorrow.setDate(today.getDate()+1);
 
-window.currentView= 'today';
+window.currentView = 'today';
 updateButton()
 
-geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'))
-// geoLocation(retrieveWeather, tomorrow, $('#tomorrow'))
+geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
+
+// $('#clickButton').click(function(event) {
+//     geoLocation(retrieveWeather, tomorrow, $('#forecast'), $('#clothes'));
+//     updateButton();
+//     geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
+//     updateButton();
+
+// })
 
 $('#clickButton').click(function(event) {
-    geoLocation(retrieveWeather, tomorrow, $('#forecast'), $('#clothes'));
-    updateButton();
-
+    var weatherDate;
+    if(window.currentView == 'today') {
+     weatherDate = today;
+    } else {
+     weatherDate = tomorrow;
+    }
+  geoLocation(retrieveWeather, weatherDate, $('#forecast'), $('#clothes'));
+  updateButton();
 })
 
 // // =================
