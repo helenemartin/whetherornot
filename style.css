@@ -43,7 +43,7 @@ h1 {
 }
 
 #clothes {
-  width: calc(60% - 40px);
+  width: calc(33.3% - 40px);
 
 }
 .clothes-wrapper {
@@ -68,10 +68,13 @@ button#clickButton {
 
 @media (min-width: 800px) {
   .flex-container{
-    width: calc(33.3% - 40px);
+    /*width: calc(60% - 40px);*/
     height: 200px;
-    float: right;
+    /*float: right;*/
     flex-direction: row;
+  }
+  #clothes {
+    width: calc(60% - 40px);
   }
 
 }
