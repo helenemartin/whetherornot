@@ -18,26 +18,22 @@ h1 {
   font-size:50px;
 }
 
-img {
-  padding-top:10px;
-  width:20%;
-  height:20%;
-}
+
 .flex-container{
   padding-top: 20px;
   display:flex;
-  
+  flex-direction: row;  
 }
 
 #forecast {
   width: 50%;
-  float:left;
+  /*float:left;*/
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
   margin: 20px;
   text-align:center;
   line-height: 1.8em;
-  flex-direction: column;
+  flex-direction: row;
 
 }
 .text {
@@ -48,7 +44,7 @@ img {
 
 #clothes {
   width: calc(60% - 40px);
-  flex-direction: column;
+  flex-direction: row;
 }
 .clothes-wrapper {
   padding-top: 15px;
@@ -57,7 +53,7 @@ img {
 
 img.clothing{
   position: relative;
-  float: left;
+  /*float: left;*/
   width:  50%;
   height: 50%;
   background-position: 100% 100%;
@@ -69,3 +65,12 @@ button#clickButton {
   text-align: right;
 }
 
+@media (min-width: 800px) {
+  #clothes {
+    width: calc(33.3% - 40px);
+    height: 200px;
+    float: right;
+    flex-direction: column;
+  }
+
+}
