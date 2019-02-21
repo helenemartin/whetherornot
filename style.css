@@ -31,13 +31,13 @@ h1 {
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
   margin: 20px;
-  text-align:center;
+  justify-content: flexstart;
   line-height: 1.8em;
   /*flex-direction: row;*/
 }
 
-.text {
-  text-align: left;
+#forecast.text {
+  
   padding-top: 14px;
   padding-left: 40px;
 }
@@ -57,7 +57,7 @@ padding-bottom: 15px;
 padding-left: 75px;
 }
 
-img.clothing{
+img.void{
   position: relative;
   /*float: left;*/
   width:  50%;
@@ -79,10 +79,15 @@ button#clickButton: {
   
   #clothes {
     width: calc(50% - 40px);
-    align-items: center;
+    margin: 0 auto;
   }
+  /*#clothes-wrapper p {
+    padding-bottom: 15px;
+    padding-left: 53px;
+  }*/
   #forecast {
-    width: 100%;
+    /*width: 100%;*/
+    margin: 0 auto;
   }
 
   button#clickButton {

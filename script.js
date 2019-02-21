@@ -18,6 +18,22 @@ function clothingRecommandation(data){
         "0.80": "unlikely",
         "1": "none",
     }
+    // var randImages = [
+    //     "img/burber.jpg", 
+    //     "img/inesfressange.jpg", 
+    //     "img/swimsuit.jpg",
+    //     "img/Burberry_Prorsum.png",
+    //     "img/yvessaintlaurent.jpg",
+    //     "img/yvessainlaurent2.jpg",
+    //     "img/diordress.jpg",
+    //     "img/tomford.jpg",
+    //     "img/madeleine-vionnet.jpg",
+    //     "img/madeleinevionnet.jpg",
+    // ];
+    // function chooseRandImages(){
+    //     var randChoice = Math.floor (Math.Random * randImages.length);
+    //     document.getElementById("#clothes").src = randImages(randChoice);
+    // }
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
@@ -74,14 +90,25 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
     $.ajax({
         url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude},${whenNumber}`,
         // dataType: 'json'
-        dataType: 'jsonp'
-
+        dataType: 'jsonp',
+        
     }).done(function(data){
 
         var city = extractCity(data);
         var formatedDate = extractDate(data);
         var tempcelsius = formatTemperature(data);
         var x = clothingRecommandation(data);
+        //go find html, recreate image
+
+        var images = document.createElement('img');
+        //set src
+        var imageDiv = document.querySelector('.void');
+        if (imageDiv.hasChildNodes()){imageDiv.removeChild(imageDiv.firstChild)}; 
+        // set as src= x.image
+        images.src = x.image;
+        imageDiv.appendChild(images);
+
+
         
         
         console.log(tomorrow);
@@ -91,7 +118,11 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
         whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
         // debugger;
-        clothes.find(".clothing").attr("src", x.image);    
+        // clothes.find(".clothing").attr("src", x.image);
+        // clothes(".clothing").attr("src", x.image);   
+        var loadingDiv = document.querySelector('.loading');
+        loadingDiv.style.display = 'none'; 
+
 
     });
 
