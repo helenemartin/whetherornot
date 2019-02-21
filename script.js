@@ -13,46 +13,51 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 
 function clothingRecommandation(data){
     var advice = {
-        "0.10": "very likely",
-        "0.64": "likely", 
-        "0.80": "unlikely",
-        "1": "none",
+    
+        "0.10": {text:"Very likely", images:["img/burber.jpg", "img/yvessainlaurent2.jpg"]};
+        "0.64": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]};
+        "0.80": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg","img/madeleine-vionnet.jpg"]};
+        "1": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]};
     }
     // var randImages = [
     //     "img/burber.jpg", 
     //     "img/inesfressange.jpg", 
     //     "img/swimsuit.jpg",
-    //     "img/Burberry_Prorsum.png",
-    //     "img/yvessaintlaurent.jpg",
-    //     "img/yvessainlaurent2.jpg",
-    //     "img/diordress.jpg",
+        
+        
+    //     ,
+        
     //     "img/tomford.jpg",
-    //     "img/madeleine-vionnet.jpg",
+        
     //     "img/madeleinevionnet.jpg",
     // ];
-    // function chooseRandImages(){
-    //     var randChoice = Math.floor (Math.Random * randImages.length);
-    //     document.getElementById("#clothes").src = randImages(randChoice);
-    // }
+    function chooseRandImages(images){
+        var randChoice = Math.floor (Math.Random * randImages.length);
+         return images(randChoice);
+    }
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
         var advicestring = parseFloat([dataForToday.precipProbability]);
+        var choosenAdvice = null;
         switch(true) {
             case advicestring <= 0.1:
-                return {text:"Very likely", image: "img/burber.jpg"}
+                choosenAdvice = advice["0.10"];
                 break;
             case advicestring < 0.65:
-                return {text:"Likely", image: "img/inesfressange.jpg"}
+                choosenAdvice = advice["0.64"];
                 break;
             case advicestring < 0.81:
-                return {text:"Unlikely", image: "img/inesfressange.jpg"}
+                choosenAdvice = advice["0.80"];
                 break;
             case advicestring <= 1:
-                return {text:"none", image: "img/swimsuit.jpg"}
+                choosenAdvice = advice["1"];
                 break;
             default:
         }
+        choosenAdvice.image = choseRandomImage(choosenAdvice.images);
+        return choosenAdvice;    
+
     }
 }
 
@@ -103,6 +108,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         var images = document.createElement('img');
         //set src
         var imageDiv = document.querySelector('.void');
+        //prevents propagation of image even before the image is appended
         if (imageDiv.hasChildNodes()){imageDiv.removeChild(imageDiv.firstChild)}; 
         // set as src= x.image
         images.src = x.image;
@@ -119,7 +125,9 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
         // debugger;
         // clothes.find(".clothing").attr("src", x.image);
-        // clothes(".clothing").attr("src", x.image);   
+        // clothes(".clothing").attr("src", x.image); 
+
+        //spinner  
         var loadingDiv = document.querySelector('.loading');
         loadingDiv.style.display = 'none'; 
 
