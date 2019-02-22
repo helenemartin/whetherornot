@@ -19,19 +19,21 @@ function clothingRecommandation(data){
         "0.80": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg", "img/madeleine-vionnet.jpg"]},
         "1": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
     }
-    console.log("hello", advice);
+    
    
     function chooseRandImages(images){
-        var randChoice = Math.floor (Math.Random * images.length);
+        var randChoice = Math.floor (Math.random() * images.length);
+        console.log('chooseRandImages', randChoice, images, images[randChoice]);
          return images[randChoice];
 
     }
+    console.log("hello", advice);
 
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
         var advicestring = parseFloat([dataForToday.precipProbability]);
-        var choosenAdvice = true;
+        var choosenAdvice = null;
 
         switch(true) {
             case advicestring <= 0.1:
@@ -50,12 +52,9 @@ function clothingRecommandation(data){
         }
         
         
-        choosenAdvice.images = chooseRandImages(choosenAdvice.images);
+        choosenAdvice.image = chooseRandImages(choosenAdvice.images);
+        console.log('choosenAdvice', choosenAdvice);
         return choosenAdvice;
-        
-
-
-
     }
 }
 
