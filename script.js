@@ -14,21 +14,25 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function clothingRecommandation(data){
     var advice = {
     
-        "0.10": {text:"Very likely", images:["./img/burber.jpg", "./img/yvessainlaurent2.jpg"]},
-        "0.64": {text:"Likely", images: ["./img/inesfressange.jpg", "./img/yvessaintlaurent.jpg"]},
-        "0.80": {text:"Unlikely", images: ["/img/inesfressange.jpg", "./img/diordress.jpg", "./img/madeleine-vionnet.jpg"]},
-        "1": {text:"none", images: ["./img/Burberry_Prorsum.png","./img/swimsuit.jpg"]},
+        "0.10": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg"]},
+        "0.64": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]},
+        "0.80": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg", "img/madeleine-vionnet.jpg"]},
+        "1": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
     }
+    console.log("hello", advice);
    
     function chooseRandImages(images){
         var randChoice = Math.floor (Math.Random * images.length);
          return images[randChoice];
+
     }
+
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
         var advicestring = parseFloat([dataForToday.precipProbability]);
-        var choosenAdvice = null;
+        var choosenAdvice = true;
+
         switch(true) {
             case advicestring <= 0.1:
                 choosenAdvice = advice["0.10"];
@@ -44,8 +48,13 @@ function clothingRecommandation(data){
                 break;
             default:
         }
+        
+        
         choosenAdvice.images = chooseRandImages(choosenAdvice.images);
-        return choosenAdvice;    
+        return choosenAdvice;
+        
+
+
 
     }
 }
@@ -93,6 +102,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         var tempcelsius = formatTemperature(data);
         var x = clothingRecommandation(data);
         //go find html, recreate image
+        
 
         var images = document.createElement('img');
         //set src
@@ -100,7 +110,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         //prevents propagation of image even before the image is appended
         if (imageDiv.hasChildNodes()){imageDiv.removeChild(imageDiv.firstChild)}; 
         // set as src= x.image
-        images.src = x.image;
+        images.setAttribute('src', x.image);
         imageDiv.appendChild(images);
 
 

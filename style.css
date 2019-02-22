@@ -27,17 +27,17 @@ h1 {
 
 #forecast {
   width: calc(40% - 40px);
-  /*float:left;*/
+  float:left;
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
   margin: 20px;
-  justify-content: flexstart;
+  /*justify-content: flexstart;*/
   line-height: 1.8em;
   /*flex-direction: row;*/
 }
 
 #forecast.text {
-  
+  text-align: left;
   padding-top: 14px;
   padding-left: 40px;
 }
@@ -58,6 +58,7 @@ padding-left: 75px;
 }
 
 img.void{
+  display
   position: relative;
   /*float: left;*/
   width:  50%;
@@ -107,10 +108,10 @@ button#clickButton: {
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
   margin: 20px;
-  text-align:center;
+  text-align:left;
   line-height: 1.8em;
-  align-items: center;
   }
+
   #clothes {
     width: calc(80% - 40px);
     padding-left: 10%;
