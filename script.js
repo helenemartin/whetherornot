@@ -14,26 +14,15 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function clothingRecommandation(data){
     var advice = {
     
-        "0.10": {text:"Very likely", images:["img/burber.jpg", "img/yvessainlaurent2.jpg"]};
-        "0.64": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]};
-        "0.80": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg","img/madeleine-vionnet.jpg"]};
-        "1": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]};
+        "0.10": {text:"Very likely", images:["./img/burber.jpg", "./img/yvessainlaurent2.jpg"]},
+        "0.64": {text:"Likely", images: ["./img/inesfressange.jpg", "./img/yvessaintlaurent.jpg"]},
+        "0.80": {text:"Unlikely", images: ["/img/inesfressange.jpg", "./img/diordress.jpg", "./img/madeleine-vionnet.jpg"]},
+        "1": {text:"none", images: ["./img/Burberry_Prorsum.png","./img/swimsuit.jpg"]},
     }
-    // var randImages = [
-    //     "img/burber.jpg", 
-    //     "img/inesfressange.jpg", 
-    //     "img/swimsuit.jpg",
-        
-        
-    //     ,
-        
-    //     "img/tomford.jpg",
-        
-    //     "img/madeleinevionnet.jpg",
-    // ];
+   
     function chooseRandImages(images){
-        var randChoice = Math.floor (Math.Random * randImages.length);
-         return images(randChoice);
+        var randChoice = Math.floor (Math.Random * images.length);
+         return images[randChoice];
     }
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
@@ -55,7 +44,7 @@ function clothingRecommandation(data){
                 break;
             default:
         }
-        choosenAdvice.image = choseRandomImage(choosenAdvice.images);
+        choosenAdvice.images = chooseRandImages(choosenAdvice.images);
         return choosenAdvice;    
 
     }
