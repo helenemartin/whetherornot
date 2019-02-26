@@ -14,10 +14,10 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function clothingRecommandation(data){
     var advice = {
     
-        "0.10": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg"]},
-        "0.64": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]},
-        "0.80": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg", "img/madeleine-vionnet.jpg"]},
-        "1": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
+        "1": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg"]},
+        "0.80": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]},
+        "0.64": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg", "img/madeleine-vionnet.jpg"]},
+        "0.10": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
     }
     
    
