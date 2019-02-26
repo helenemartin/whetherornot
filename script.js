@@ -113,9 +113,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         imageDiv.appendChild(images);
 
 
-        
-        
-        console.log(tomorrow);
+
 
         whereToPut.find(".location").text("You are in " + city);
         whereToPut.find(".todaysDate").text(formatedDate);
@@ -126,54 +124,37 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         // clothes(".clothing").attr("src", x.image); 
 
         //spinner  
-        var loadingDiv = document.querySelector('.loading');
-        loadingDiv.style.display = 'none'; 
+        // var loadingDiv = document.querySelector('.loading');
+        // loadingDiv.style.display = 'none'; 
 
 
     });
 
 }
 
-function updateButton(){
-    var button = document.querySelector('#clickButton');
-    if (window.currentView == 'today'){
-        window.currentView = 'tomorrow';
-        button.textContent = 'Show Tomorrow >';
 
-    } else if (window.currentView == 'tomorrow'){ 
-        window.currentView = 'today';
-        button.textContent = '< Show Today';
-    } 
-}
 
-var today = new Date();
-var tomorrow = new Date();
-tomorrow.setDate(today.getDate()+1);
+var currentDate = new Date();
 
-window.currentView = 'today';
-updateButton()
 
-geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
 
-// $('#clickButton').click(function(event) {
-//     geoLocation(retrieveWeather, tomorrow, $('#forecast'), $('#clothes'));
-//     updateButton();
-//     geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
-//     updateButton();
 
-// })
+// geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
 
-$('#clickButton').click(function(event) {
-    var weatherDate;
-    if(window.currentView == 'today') {
-     weatherDate = today;
-    } else {
-     weatherDate = tomorrow;
-    }
-  geoLocation(retrieveWeather, weatherDate, $('#forecast'), $('#clothes'));
-  updateButton();
-})
 
+
+$('#nextDate').click(function(event) {
+    currentDate.setDate(currentDate.getDate()+1);
+  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+});
+$('#prevDate').click(function(event) {
+    currentDate.setDate(currentDate.getDate()-1);
+  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+});
+
+$( document ).ready(function() {
+  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+});
 // // =================
 
 // function thingToDoWhenClicked() {
