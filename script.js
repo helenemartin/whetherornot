@@ -14,9 +14,9 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function clothingRecommandation(data){
     var advice = {
     
-        "1": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg"]},
-        "0.80": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg"]},
-        "0.64": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/diordress.jpg", "img/madeleine-vionnet.jpg"]},
+        "1": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg", "img/madeleine-vionnet.jpg", "img/tomford.jpg"]},
+        "0.80": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg", "img/polkasaintlaurent.jpg"]},
+        "0.64": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/yvessainlaurent2.jpg", "img/madeleine-vionnet.jpg"]},
         "0.10": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
     }
     
@@ -123,9 +123,9 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         // clothes.find(".clothing").attr("src", x.image);
         // clothes(".clothing").attr("src", x.image); 
 
-        //spinner  
-        // var loadingDiv = document.querySelector('.loading');
-        // loadingDiv.style.display = 'none'; 
+        // spinner  
+        var loadingDiv = document.querySelector('.loading-wrapper');
+        loadingDiv.style.display = 'none'; 
 
 
     });
@@ -135,6 +135,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
 
 var currentDate = new Date();
+// date array= [];
 
 
 
@@ -145,6 +146,11 @@ var currentDate = new Date();
 
 $('#nextDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()+1);
+    // for(i = 0; i < 7; i++){
+    //    currentDate.setDate(currentDate.getDate() + i);
+    //   console.log(currentDate); 
+    // }
+
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
 $('#prevDate').click(function(event) {
@@ -155,6 +161,8 @@ $('#prevDate').click(function(event) {
 $( document ).ready(function() {
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
+
+
 // // =================
 
 // function thingToDoWhenClicked() {
