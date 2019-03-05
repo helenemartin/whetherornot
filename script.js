@@ -14,10 +14,10 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function clothingRecommandation(data){
     var advice = {
     
-        "1": {text:"Very likely", images:["img/burber.jpg", "img/yvessaintlaurent.jpg", "img/madeleine-vionnet.jpg", "img/tomford.jpg"]},
-        "0.80": {text:"Likely", images: ["img/inesfressange.jpg", "img/yvessaintlaurent.jpg", "img/polkasaintlaurent.jpg"]},
-        "0.64": {text:"Unlikely", images: ["img/inesfressange.jpg", "img/yvessainlaurent2.jpg", "img/madeleine-vionnet.jpg"]},
-        "0.10": {text:"none", images: ["img/Burberry_Prorsum.png","img/swimsuit.jpg"]},
+        "1": {text:"Very likely", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
+        "0.80": {text:"Likely", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg"]},
+        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/nicolefahrijacket.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg"]},
+        "0.10": {text:"none", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
     }
     
    
@@ -135,17 +135,45 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
 
 var currentDate = new Date();
+var today = new Date();
+
 // date array= [];
 
-
+function areDatesEqual(date1, date2){
+    return date1.getFullYear() === date2.getFullYear()
+        && date1.getMonth() === date2.getMonth()
+        && date1.getDate() === date2.getDate();
+}
 
 
 // geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
 
+function togglePreviousButton(date, today){
+    var previousButton = document.querySelector('#prevDate');
+    if (areDatesEqual(date, today)) {
+        previousButton.style.display = 'none'; 
+    } else {
+        previousButton.style.display = 'inline-block';
+    }
 
+}
+function toggleNextButton(date, today) {
+    var nextButton = document.querySelector('#nextDate');
+    var maxDate = new Date(today.getTime());
+    maxDate.setDate(maxDate.getDate() + 7)
+
+    if (maxDate <= date) {
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "inline-block";
+    }
+        
+}
 
 $('#nextDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()+1);
+    togglePreviousButton(currentDate, today);
+    toggleNextButton(currentDate, today);    
     // for(i = 0; i < 7; i++){
     //    currentDate.setDate(currentDate.getDate() + i);
     //   console.log(currentDate); 
@@ -153,12 +181,18 @@ $('#nextDate').click(function(event) {
 
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
+ 
+
 $('#prevDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()-1);
+    togglePreviousButton(currentDate, today);
+    toggleNextButton(currentDate, today);
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
 
 $( document ).ready(function() {
+    togglePreviousButton(currentDate, today);
+    toggleNextButton(currentDate, today);
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
 
