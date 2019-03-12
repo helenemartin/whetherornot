@@ -57,15 +57,31 @@ padding-bottom: 15px;
 padding-left: 75px;
 }
 
-img.void{
-  display
-  position: relative;
-  /*float: left;*/
-  width:  50%;
-  height: 50%;
-  background-position: 100% 100%;
-  background-size: cover;
+.carousel {
+  white-space: nowrap;
+  overflow: hidden;
 }
+
+.slider {
+  position: relative;
+  transition: ease-in-out 0.5s all;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 button {
   border: 1px solid black;
   /*position: absolute;*/
@@ -142,6 +158,42 @@ background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, F
 
          }
 /* end spinner */
+
+/* other spinner */
+
+/*@keyframes fontbulger {
+  0% {
+    background: url(../img/spinner1.jpg) no-repeat;
+  }
+ 
+  20% {
+    background: url(../img/spinner2.jpg) no-repeat;
+
+  }
+
+  40% {
+    background: url(../img/spinner3.jpg) no-repeat;
+  }
+
+  60% {
+    background: url(../img/spinner4.jpg) no-repeat;
+  }
+ 
+   /*100% {
+    background: url(../images/30.jpg) no-repeat;
+  }*/
+/*}
+*/
+
+ /*.loading-wrapper {
+  /*background: url(../images/26.jpg) no-repeat;*/
+  /*width:100%;
+  height: 100%;
+  animation: fontbulger 2000ms infinite alternate;
+ }*/
+
+
+/* other spinner */
 
 @media (min-width: 620px) {
   

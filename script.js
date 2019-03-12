@@ -2,6 +2,14 @@ var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda
 
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+var advice = {
+    
+        "1": {text:"Very likely", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
+        "0.80": {text:"Likely", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg"]},
+        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/nicolefahrijacket.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg"]},
+        "0.10": {text:"none", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
+}
+
 function geoLocation(renderFunction, when, whereToPut, clothes) {
     function thingToDoWhenWeKnowWhereWeAre(location) {
         var { latitude, longitude } = location.coords;
@@ -11,50 +19,37 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
     navigator.geolocation.getCurrentPosition(thingToDoWhenWeKnowWhereWeAre);
 }
 
-function clothingRecommandation(data){
-    var advice = {
-    
-        "1": {text:"Very likely", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
-        "0.80": {text:"Likely", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg"]},
-        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/nicolefahrijacket.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg"]},
-        "0.10": {text:"none", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
-    }
-    
-   
-    function chooseRandImages(images){
-        var randChoice = Math.floor (Math.random() * images.length);
-        console.log('chooseRandImages', randChoice, images, images[randChoice]);
-         return images[randChoice];
+function chooseRandImages(images){
+    var randChoice = Math.floor (Math.random() * images.length);
+    console.log('chooseRandImages', randChoice, images, images[randChoice]);
+     return images[randChoice];
 
-    }
-    console.log("hello", advice);
+}
+
+function clothingRecommandation(data){
+
 
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
         var advicestring = parseFloat([dataForToday.precipProbability]);
-        var choosenAdvice = null;
 
         switch(true) {
             case advicestring <= 0.1:
-                choosenAdvice = advice["0.10"];
+                return advice["0.10"];
                 break;
             case advicestring < 0.65:
-                choosenAdvice = advice["0.64"];
+                return advice["0.64"];
                 break;
             case advicestring < 0.81:
-                choosenAdvice = advice["0.80"];
+                return advice["0.80"];
                 break;
             case advicestring <= 1:
-                choosenAdvice = advice["1"];
+                return advice["1"];
                 break;
             default:
         }
         
-        
-        choosenAdvice.image = chooseRandImages(choosenAdvice.images);
-        console.log('choosenAdvice', choosenAdvice);
-        return choosenAdvice;
     }
 }
 
@@ -102,15 +97,26 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         var x = clothingRecommandation(data);
         //go find html, recreate image
         
-
-        var images = document.createElement('img');
-        //set src
-        var imageDiv = document.querySelector('.void');
+        var imageDiv = document.querySelector('.slider');
+        imageDiv.style.left= 0;
         //prevents propagation of image even before the image is appended
-        if (imageDiv.hasChildNodes()){imageDiv.removeChild(imageDiv.firstChild)}; 
-        // set as src= x.image
-        images.setAttribute('src', x.image);
-        imageDiv.appendChild(images);
+        imageDiv.innerHTML= '';
+
+
+        x.images.forEach(function(imageUrl){
+            var images = document.createElement('img');
+            var imagesWrapper = document.createElement('div');
+            imagesWrapper.className = 'image-wrapper';
+            imagesWrapper.appendChild(images);
+            //set src
+           
+            // set as src= x.image
+            images.setAttribute('src', imageUrl);
+            imageDiv.appendChild(imagesWrapper);
+
+        });
+
+   
 
 
 
@@ -187,8 +193,24 @@ $('#prevDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()-1);
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
-  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
+
+function goLeft () {
+    var slider = $(this).find('.slider')[0];
+    var slides = $(this).find('.image-wrapper');
+    var left = parseFloat(slider.style.left) || 0;
+    slider.style.left= Math.min(left + 100, 0) + '%';
+}
+
+function goRight () {
+    var slider = $(this).find('.slider')[0];
+    var slides = $(this).find('.image-wrapper');
+    var left = parseFloat(slider.style.left) || 0;
+    slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
+}
+
+$('#carousel').click(goRight);
 
 $( document ).ready(function() {
     togglePreviousButton(currentDate, today);
