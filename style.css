@@ -99,7 +99,7 @@ button {
     left: 25%;
     /*z-index: 1001;
     transform: translate(-50%,-50%);*/
-    background: url(img/spinner1.jpg) no-repeat;
+    background: url(./img/spinner1.jpg) no-repeat;
     width:116%;
     height: 251%;
     animation: fontbulger 500ms infinite alternate;
@@ -147,20 +147,20 @@ button {
 
 @keyframes fontbulger {
   0% {
-    background: url(img/spinner1.jpg) no-repeat;
+    background: url(./img/spinner1.jpg) no-repeat;
   }
  
   20% {
-    background: url(img/spinner2.jpg) no-repeat;
+    background: url(./img/spinner2.jpg) no-repeat;
 
   }
 
   40% {
-    background: url(img/spinner3.jpg) no-repeat;
+    background: url(./img/spinner3.jpg) no-repeat;
   }
 
   60% {
-    background: url(img/spinner4.jpg) no-repeat;
+    background: url(./img/spinner4.jpg) no-repeat;
   }
 } 
    /*100% {
