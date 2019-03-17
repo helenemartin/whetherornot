@@ -93,44 +93,28 @@ button {
 .loading-wrapper {
     display: block;
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 50%;
     left: 25%;
-    z-index: 1001;
-    transform: translate(-50%,-50%);
+    /*z-index: 1001;
+    transform: translate(-50%,-50%);*/
+    background: url(../img/spinner1.jpg) no-repeat;
+    width:116%;
+    height: 251%;
+    animation: fontbulger 500ms infinite alternate;
 }
 
-.loading-wrapper .loading-indicator .loading {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    /*background-color: teal;*/
-    background: #FF512F;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    border-radius: 50%;
-    margin: 0px 2px;
-    -webkit-animation: bounce 1s infinite ease-in-out both;
-    animation: bounce 1s infinite ease-in-out both;
-}
-
-.loading-wrapper .loading-indicator .first_sm {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
-}
-
-.loading-wrapper .loading-indicator .third_sm {
-    -webkit-animation-delay: 0.16s;
-     animation-delay: 0.16s;
-}
 
 .loading-wrapper .indicator-text {
   display: inline-block;
     font-family: monospace;
     color: black;
     font-size: 8px;
-    margin: 10px 0;
+    margin: 82px 190px;
 }
+
 
 
 
@@ -161,7 +145,7 @@ background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, F
 
 /* other spinner */
 
-/*@keyframes fontbulger {
+@keyframes fontbulger {
   0% {
     background: url(../img/spinner1.jpg) no-repeat;
   }
@@ -178,19 +162,13 @@ background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, F
   60% {
     background: url(../img/spinner4.jpg) no-repeat;
   }
- 
+} 
    /*100% {
     background: url(../images/30.jpg) no-repeat;
-  }*/
-/*}
+}
 */
 
- /*.loading-wrapper {
-  /*background: url(../images/26.jpg) no-repeat;*/
-  /*width:100%;
-  height: 100%;
-  animation: fontbulger 2000ms infinite alternate;
- }*/
+ 
 
 
 /* other spinner */

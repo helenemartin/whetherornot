@@ -203,20 +203,48 @@ function goLeft () {
     slider.style.left= Math.min(left + 100, 0) + '%';
 }
 
+var slideInterval;
+
+function startSlidding(){
+    console.log("starting go right function");
+    slideInterval = window.setInterval(goRight, 1500);
+};
+
+// function goRight () {
+
+//     var slider = $(this).find('.slider')[0];
+//     console.log(slider);
+//     var slides = $(this).find('.image-wrapper');
+//     var left = parseFloat(slider.style.left) || 0;
+//     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
+    
+// }
+
+
 function goRight () {
-    var slider = $(this).find('.slider')[0];
-    var slides = $(this).find('.image-wrapper');
+
+    var slider = document.querySelector('.slider');
+    var slides = $(document).find('.image-wrapper');
+    console.log(slides.length);
+    console.log(slides);
+    //play with line 231 check length of slider then check if the left attribute is equal the maximum %
+    if (slider.style.left === (slides.length-1)*100) {
+        console.log("is this the end");
+        clearInterval(slideInterval);
+    }
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-}
+    
+}//here when the "Next Button" is clicked start startSlidding function
+$('#carousel').click(startSlidding);
 
-$('#carousel').click(goRight);
 
 $( document ).ready(function() {
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
+//clear interval here
 
 
 // // =================
