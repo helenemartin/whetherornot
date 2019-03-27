@@ -11,12 +11,14 @@ var advice = {
 }
 
 function geoLocation(renderFunction, when, whereToPut, clothes) {
-    function thingToDoWhenWeKnowWhereWeAre(location) {
+    
+        function thingToDoWhenWeKnowWhereWeAre(location) {
         var { latitude, longitude } = location.coords;
         renderFunction(latitude, longitude, when, whereToPut, clothes);
     }
 
     navigator.geolocation.getCurrentPosition(thingToDoWhenWeKnowWhereWeAre);
+    console.log("hello", renderFunction);
 }
 
 function chooseRandImages(images){
@@ -164,6 +166,7 @@ function togglePreviousButton(date, today){
 
 }
 function toggleNextButton(date, today) {
+    // console.log(date);
     var nextButton = document.querySelector('#nextDate');
     var maxDate = new Date(today.getTime());
     maxDate.setDate(maxDate.getDate() + 7)
@@ -197,8 +200,9 @@ $('#prevDate').click(function(event) {
 });
 
 function goLeft () {
-    var slider = $(this).find('.slider')[0];
-    var slides = $(this).find('.image-wrapper');
+    var slider = document.querySelector('.slider');
+    console.log("hello", slider.style);
+    var slides = $(document).find('.image-wrapper');
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.min(left + 100, 0) + '%';
 }
@@ -224,6 +228,7 @@ function startSlidding(){
 function goRight () {
 
     var slider = document.querySelector('.slider');
+    console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
     console.log(slides.length);
     console.log(slides);
@@ -237,9 +242,14 @@ function goRight () {
     
 }//here when the "Next Button" is clicked start startSlidding function
 $('#carousel').click(startSlidding);
+$('.clothesforth').click(goRight);
+$('.clothesback').click(goLeft);
 
 
-$( document ).ready(function() {
+
+    
+$(document).ready(function() {
+
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));

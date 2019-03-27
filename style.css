@@ -102,9 +102,8 @@ button {
     background: url(./img/spinner1.jpg) no-repeat;
     width:116%;
     height: 251%;
-    animation: fontbulger 500ms infinite alternate;
+    animation: mannequin 500ms infinite alternate;
 }
-
 
 
 .loading-wrapper .indicator-text {
@@ -145,7 +144,7 @@ button {
 
 /* other spinner */
 
-@keyframes fontbulger {
+@keyframes mannequin {
   0% {
     background: url(./img/spinner1.jpg) no-repeat;
   }
