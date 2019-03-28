@@ -235,7 +235,6 @@ function goRight () {
     }
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-    
 }
 //here when the "Next Button" is clicked start startSlidding function
 $('#carousel').click(startSlidding);
@@ -253,7 +252,7 @@ $(document).ready(function() {
 });
 
 //clear interval here
-clearInterval(slideInterVal);
+
 
 
 // // =================
