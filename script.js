@@ -118,10 +118,6 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
         });
 
-   
-
-
-
 
         whereToPut.find(".location").text("You are in " + city);
         whereToPut.find(".todaysDate").text(formatedDate);
@@ -240,7 +236,8 @@ function goRight () {
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
     
-}//here when the "Next Button" is clicked start startSlidding function
+}
+//here when the "Next Button" is clicked start startSlidding function
 $('#carousel').click(startSlidding);
 $('.clothesforth').click(goRight);
 $('.clothesback').click(goLeft);
@@ -254,7 +251,9 @@ $(document).ready(function() {
     toggleNextButton(currentDate, today);
   geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
+
 //clear interval here
+clearInterval(slideInterVal);
 
 
 // // =================

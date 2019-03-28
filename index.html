@@ -6,44 +6,42 @@
     
   </head>
   <body>
-    <div class="wrapper">
+    
       <header>
         <h1>Whether or Not</h1>
       </header>
+      <div class="page-container">
+       <div class="loading-wrapper">
+          <span class="indicator-text">Uploading...</span>
+        </div>
+
       <div class="flex-container">
-          <div id="forecast">
-            <div class= "text">
-              <div class="location"></div>
-              <div class="todaysDate"></div>
-              <div class="temperatureMax"></div>
-              <div class="precipProbability"></div>
-              <div class="suggestions"></div>
-            </div> 
-            <button id="prevDate">Previous day</button>
-            <button id="nextDate">Next day</button>
-          </div>  
-          <div id="clothes">
-            <div class="clothes-wrapper">
-              <p>You can wear this</p>
-              <p>Click sthmg for clothes options today</p>
+         
+        <div class="wrapper">
+            <div id="forecast">
+              <div class= "text">
+                <div class="location"></div>
+                <div class="todaysDate"></div>
+                <div class="temperatureMax"></div>
+                <div class="precipProbability"></div>
+                <div class="suggestions"></div>
+              </div> 
+              <button id="prevDate">Previous day</button>
+              <button id="nextDate">Next day</button>
+            </div>  
+            <div id="clothes">
+              <div class="clothes-wrapper">
+                <!-- <p>You can wear this</p>
+                <p>Click for clothes options today</p> -->
               <div class="carousel" id="carousel">
-                <div class="slider"></div>
+                <div class="slider"></div>         
               </div>
                 <button class="clothesback"> <- </button>
-                <button class="clothesforth"> -> </button>
-              <div class="loading-wrapper">
-                <!-- <div class="loading-indicator">
-                  <span class="loading first_sm"></span>
-                  <span class="loading second_sm"></span>
-                  <span class="loading third_sm"></span>
-                </div> -->
-                <span class="indicator-text">Uploading...</span>
-              </div>
-              <!-- <img class="clothing" src="" alt='loading..'> -->
-              
+                <button class="clothesforth"> -> </button> 
             </div>
-          </div>
+        </div>
       </div>
+        </div>
       <footer>
       </footer>
     </div>
