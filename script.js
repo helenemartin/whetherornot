@@ -24,7 +24,7 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 function chooseRandImages(images){
     var randChoice = Math.floor (Math.random() * images.length);
     console.log('chooseRandImages', randChoice, images, images[randChoice]);
-     return images[randChoice];
+    return images[randChoice];
 
 }
 
