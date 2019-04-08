@@ -203,12 +203,6 @@ function goLeft () {
     slider.style.left= Math.min(left + 100, 0) + '%';
 }
 
-var slideInterval;
-
-function startSlidding(){
-    console.log("starting go right function");
-    slideInterval = window.setInterval(goRight, 1500);
-};
 
 // function goRight () {
 
@@ -219,15 +213,18 @@ function startSlidding(){
 //     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
     
 // }
+var slideInterval;
 
+function startSlidding(){
+    console.log("starting go right function");
+    slideInterval = window.setInterval(goRight, 1500);
+};
 
 function goRight () {
 
     var slider = document.querySelector('.slider');
-    console.log("hello", slider.style);
+    // console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
-    console.log(slides.length);
-    console.log(slides);
     //play with line 231 check length of slider then check if the left attribute is equal the maximum %
     if (slider.style.left === (slides.length-1)*100) {
         console.log("is this the end");
@@ -236,6 +233,11 @@ function goRight () {
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
 }
+
+
+
+
+
 //here when the "Next Button" is clicked start startSlidding function
 $('#carousel').click(startSlidding);
 $('.clothesforth').click(goRight);
@@ -255,16 +257,4 @@ $(document).ready(function() {
 
 
 
-// // =================
-
-// function thingToDoWhenClicked() {
-//    console.log("I was clicked!")
-// }
-// document.addEventListener('click', thingToDoWhenClicked);
-
-// // =================
-
-// document.addEventListener('click', function() {
-//    console.log("I was clicked!")
-// });
 
