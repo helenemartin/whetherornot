@@ -97,6 +97,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         var formatedDate = extractDate(data);
         var tempcelsius = formatTemperature(data);
         var x = clothingRecommandation(data);
+        console.log("image", x);
         //go find html, recreate image
         
         var imageDiv = document.querySelector('.slider');
@@ -195,7 +196,10 @@ $('#prevDate').click(function(event) {
     geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
 
-function goLeft () {
+
+
+
+function moveImageLeft () {
     var slider = document.querySelector('.slider');
     console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
@@ -204,34 +208,46 @@ function goLeft () {
 }
 
 
-// function goRight () {
-
-//     var slider = $(this).find('.slider')[0];
-//     console.log(slider);
-//     var slides = $(this).find('.image-wrapper');
-//     var left = parseFloat(slider.style.left) || 0;
-//     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-    
-// }
 var slideInterval;
 
-function startSlidding(){
+function startSliddingRight(){
     console.log("starting go right function");
-    slideInterval = window.setInterval(goRight, 1500);
+    slideInterval = window.setInterval(moveImageRight, 1500);
 };
 
-function goRight () {
+function startSliddingLeft(){
+    console.log("starting go right function");
+    slideInterval = window.setInterval(moveImageRight, 1500);
+};
+
+function moveImageRight () {
 
     var slider = document.querySelector('.slider');
     // console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
     //play with line 231 check length of slider then check if the left attribute is equal the maximum %
-    if (slider.style.left === (slides.length-1)*100) {
+    var isAtItsPlace = slider.style.left === (slides.length-1)*100;
+    console.log(isAtItsPlace, "Hello");
+    console.log(slider.style.left, "so stylish");
+    console.log((slides.length-1)*100, "boohoo");
+    if (isAtItsPlace){
         console.log("is this the end");
         clearInterval(slideInterval);
+        
     }
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
+        console.log();
+}
+
+function handleRightButtonClick() {
+    moveImageRight();
+    startSliddingRight();
+}
+
+function handleLeftButtonClick() {
+    moveImageLeft();
+    startSliddingLeft();
 }
 
 
@@ -239,9 +255,8 @@ function goRight () {
 
 
 //here when the "Next Button" is clicked start startSlidding function
-$('#carousel').click(startSlidding);
-$('.clothesforth').click(goRight);
-$('.clothesback').click(goLeft);
+$('.clothesforth').click(handleRightButtonClick);
+$('.clothesback').click(handleLeftButtonClick);
 
 
 
