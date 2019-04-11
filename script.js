@@ -124,9 +124,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         whereToPut.find(".todaysDate").text(formatedDate);
         whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
         whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
-        // debugger;
-        // clothes.find(".clothing").attr("src", x.image);
-        // clothes(".clothing").attr("src", x.image); 
+        
 
         // spinner  
         var loadingDiv = document.querySelector('.loading-wrapper');
@@ -216,7 +214,7 @@ function startSliddingRight(){
 };
 
 function startSliddingLeft(){
-    console.log("starting go right function");
+    console.log("starting go left function");
     slideInterval = window.setInterval(moveImageRight, 1500);
 };
 
@@ -237,7 +235,7 @@ function moveImageRight () {
     }
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-        console.log();
+
 }
 
 function handleRightButtonClick() {
