@@ -60,6 +60,13 @@ h1 {
 padding-bottom: 15px;
 padding-left: 75px;
 }*/
+#nextDate {
+  /*visibility: hidden;*/
+}
+.hiddenButton {
+  /*color: black;*/
+  visibility: hidden;
+}
 
 .carousel {
   white-space: nowrap;
@@ -90,6 +97,7 @@ button {
   border: 1px solid black;
   /*position: absolute;*/
   text-align: right; 
+  visibility: none;
 }
 
 /* spinner */

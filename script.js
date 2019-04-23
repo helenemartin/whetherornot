@@ -19,6 +19,8 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
 
     navigator.geolocation.getCurrentPosition(thingToDoWhenWeKnowWhereWeAre);
     console.log("hello", renderFunction);
+
+    
 }
 
 function chooseRandImages(images){
@@ -29,8 +31,7 @@ function chooseRandImages(images){
 }
 
 function clothingRecommandation(data){
-
-
+ 
     var dataForToday = data.daily.data[0];
     if (dataForToday.precipProbability  !== undefined && dataForToday.precipProbability  !== null) {
         var message = advice;
@@ -83,9 +84,12 @@ function formatTemperature(data){
     }
 }
 
+
+
 function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
     //var time = '2019-02-12T21:00:00';
     var whenNumber = Math.ceil(when.getTime() / 1000);
+
     $.ajax({
         url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude},${whenNumber}`,
         // dataType: 'json'
@@ -93,6 +97,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         
     }).done(function(data){
 
+        $(".hiddenButton").css('visibility', 'visible'); 
         var city = extractCity(data);
         var formatedDate = extractDate(data);
         var tempcelsius = formatTemperature(data);
@@ -101,6 +106,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         //go find html, recreate image
         
         var imageDiv = document.querySelector('.slider');
+   
         imageDiv.style.left= 0;
         //prevents propagation of image even before the image is appended
         imageDiv.innerHTML= '';
@@ -116,24 +122,30 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
             // set as src= x.image
             images.setAttribute('src', imageUrl);
             imageDiv.appendChild(imagesWrapper);
+                       
+
+            
 
         });
-
 
         whereToPut.find(".location").text("You are in " + city);
         whereToPut.find(".todaysDate").text(formatedDate);
         whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
         whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
-        
+
 
         // spinner  
         var loadingDiv = document.querySelector('.loading-wrapper');
         loadingDiv.style.display = 'none'; 
 
-
     });
 
 }
+
+// setTimeout(function(){
+//     console.log("dfah");
+//    $(".hiddenButton").css('visibility', 'visible'); 
+// }, 3000); 
 
 
 
@@ -160,6 +172,21 @@ function togglePreviousButton(date, today){
     }
 
 }
+// function buttonHiddenWhenLoading(){
+//     var nextButton = document.querySelector('#nextDate');
+//     var maxDate = new Date(today.getTime());
+//     maxDate.setDate(maxDate.getDate() + 7)
+
+//     if (maxDate <= date) {
+//         nextButton.style.display = "none";
+//     } else {
+//         nextButton.style.display = "inline-block";
+//     }
+    
+// }
+
+// setInterval(view_stack, 1000);
+
 function toggleNextButton(date, today) {
     // console.log(date);
     var nextButton = document.querySelector('#nextDate');
@@ -177,13 +204,8 @@ function toggleNextButton(date, today) {
 $('#nextDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()+1);
     togglePreviousButton(currentDate, today);
-    toggleNextButton(currentDate, today);    
-    // for(i = 0; i < 7; i++){
-    //    currentDate.setDate(currentDate.getDate() + i);
-    //   console.log(currentDate); 
-    // }
-
-  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    toggleNextButton(currentDate, today);  
+    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
  
 
@@ -224,10 +246,10 @@ function moveImageRight () {
     // console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
     //play with line 231 check length of slider then check if the left attribute is equal the maximum %
-    var isAtItsPlace = slider.style.left === (slides.length-1)*100;
+    var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';
     console.log(isAtItsPlace, "Hello");
     console.log(slider.style.left, "so stylish");
-    console.log((slides.length-1)*100, "boohoo");
+    console.log(-(slides.length-1)*100, "boohoo");
     if (isAtItsPlace){
         console.log("is this the end");
         clearInterval(slideInterval);
@@ -250,20 +272,21 @@ function handleLeftButtonClick() {
 
 
 
-
+// var loadingButton = document.querySelector('#nextDate');
+//     loadingButton.style.visibility = 'visible';
 
 //here when the "Next Button" is clicked start startSlidding function
 $('.clothesforth').click(handleRightButtonClick);
 $('.clothesback').click(handleLeftButtonClick);
 
-
+// setInterval(function(){ alert("Hello"); }, 3000); 
 
     
 $(document).ready(function() {
-
+    
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
-  geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
 });
 
 //clear interval here
