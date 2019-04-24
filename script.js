@@ -220,11 +220,27 @@ $('#prevDate').click(function(event) {
 
 
 function moveImageLeft () {
-    var slider = document.querySelector('.slider');
-    console.log("hello", slider.style);
+     var slider = document.querySelector('.slider');
+    // console.log("hello", slider.style);
     var slides = $(document).find('.image-wrapper');
-    var left = parseFloat(slider.style.left) || 0;
-    slider.style.left= Math.min(left + 100, 0) + '%';
+    //play with line 231 check length of slider then check if the left attribute is equal the maximum %
+    var isAtItsPlace = slider.style.left === 0 + '%';
+    console.log(isAtItsPlace, "Hello left");
+    console.log(slider.style.left, "so stylish left");
+    console.log(0, "boohoo left");
+    if (isAtItsPlace){
+        console.log("is this the begining?");
+        clearInterval(slideInterval);
+        
+    } else {
+        var left = parseFloat(slider.style.left) || 0;
+        slider.style.left= Math.max(left +100, -(slides.length+1) * +100) + '%';
+    }
+    // var slider = document.querySelector('.slider');
+    // console.log("hello", slider.style);
+    // var slides = $(document).find('.image-wrapper');
+    // var left = parseFloat(slider.style.left) || 0;
+    // slider.style.left= Math.max(left + 100, 0) + '%';
 }
 
 
@@ -232,12 +248,12 @@ var slideInterval;
 
 function startSliddingRight(){
     console.log("starting go right function");
-    slideInterval = window.setInterval(moveImageRight, 1500);
+    slideInterval = window.setInterval(moveImageRight, 2000);
 };
 
 function startSliddingLeft(){
     console.log("starting go left function");
-    slideInterval = window.setInterval(moveImageRight, 1500);
+    slideInterval = window.setInterval(moveImageLeft, 2000);
 };
 
 function moveImageRight () {
@@ -251,13 +267,13 @@ function moveImageRight () {
     console.log(slider.style.left, "so stylish");
     console.log(-(slides.length-1)*100, "boohoo");
     if (isAtItsPlace){
-        console.log("is this the end");
+        console.log("is this the end?");
         clearInterval(slideInterval);
         
-    }
+    } else {
     var left = parseFloat(slider.style.left) || 0;
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-
+    }
 }
 
 function handleRightButtonClick() {
