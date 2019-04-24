@@ -248,12 +248,14 @@ var slideInterval;
 
 function startSliddingRight(){
     console.log("starting go right function");
-    slideInterval = window.setInterval(moveImageRight, 2000);
+    clearInterval(slideInterval);
+    slideInterval = window.setInterval(moveImageRight, 3000);
 };
 
 function startSliddingLeft(){
     console.log("starting go left function");
-    slideInterval = window.setInterval(moveImageLeft, 2000);
+    clearInterval(slideInterval);
+    slideInterval = window.setInterval(moveImageLeft, 3000);
 };
 
 function moveImageRight () {
