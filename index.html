@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Whether or Not</title>
-    
+    <!--<script>document.documentElement.className="loading-wraper";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script> -->
   </head>
   <body>
     
@@ -25,7 +25,7 @@
                 <div class="temperatureMax"></div>
                 <div class="precipProbability"></div>
                 <div class="suggestions"></div>
-                <button id="prevDate">Previous day</button>
+                <button id="prevDate" class="hiddenButton">Previous day</button>
                 <button id="nextDate" class="hiddenButton">Next day</button>
               </div> 
                 
@@ -34,8 +34,10 @@
               <div class="clothes-wrapper">
                 <!-- <p>You can wear this</p>
                 <p>Click for clothes options today</p> -->
-                 <button class="clothesback"> <- </button>
-                <button class="clothesforth"> -> </button>
+                 <button class="clothesback hiddenButton"> <- </button>
+                 <!-- <i class="fa fa-chevron-left"></i> -->
+                <button class="clothesforth hiddenButton"> -> </button>
+                <!-- <i class="fa fa-chevron-right"></i> -->
               <div class="carousel" id="carousel">
                 <div class="slider"></div> 
 
