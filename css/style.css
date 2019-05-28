@@ -7,9 +7,7 @@ body {
 
 .wrapper {
   width: 100vw;
-  height: 100vh;
- 
-  
+  height: 100vh; 
 }
 
 
@@ -33,7 +31,7 @@ h1 {
 }
 
 #forecast {
-  width: calc(40% - 40px);
+  
   float:left;
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
@@ -79,9 +77,23 @@ padding-left: 75px;
 
 .slider {
   position: relative;
+  flex-direction: row;
   
 }
 
+.button-control {
+  position: relative;
+
+}
+
+.clothesback {
+  text-decoration: none;
+
+}
+.clothesforth{
+  
+  float: right;
+}
 .slider-animating {
   transition: ease-in-out 0.5s all;
 }
@@ -130,6 +142,7 @@ button {
 }
 
 
+
 .loading-wrapper .indicator-text {
   display: inline-block;
     font-family: monospace;
@@ -168,10 +181,21 @@ button {
 
 
 /* other spinner */
+@media (min-width: 500px) {
+  .slider img {
+    width: 30%;
+  }
+
+}
 
 @media (min-width: 620px) {
+
+
   .flex-container{
     height: 200px;
+  }
+  .slider img {
+    width: 100%;
   }
   
   #clothes {
@@ -203,6 +227,7 @@ button {
   #forecast {
   /*width: 60%;*/
   /*float:left;*/
+  width: calc(40% - 40px);
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
   margin: 20px;

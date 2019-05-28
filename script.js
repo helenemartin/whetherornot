@@ -42,16 +42,12 @@ function clothingRecommandation(data){
         switch(true) {
             case advicestring <= 0.1:
                 return advice["0.10"];
-                break;
             case advicestring < 0.65:
                 return advice["0.64"];
-                break;
             case advicestring < 0.81:
                 return advice["0.80"];
-                break;
             case advicestring <= 1:
                 return advice["1"];
-                break;
             default:
         }
         
@@ -124,6 +120,15 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
 }
 
+// function appendImages(){
+//     var x = clothingRecommandation(currentData);
+//      for (i=0; i<x.images.length;i++);
+//         var imageUrl = x.images[i];
+//     currentElement.setAttribute('src', imageUrl); 
+     
+
+// }
+
 function updateGallery(){
         var x = clothingRecommandation(currentData);
         if (currentIndex < 0){
@@ -136,8 +141,10 @@ function updateGallery(){
       var imageDiv = document.querySelector('.slider');
    
         imageDiv.style.left= 0;
+        // imageDiv.prop('visibility', 'hidden');
         //prevents propagation of image even before the image is appended
         // imageDiv.innerHTML= '';
+
          var current = x.images[currentIndex];
         var next = x.images[currentIndex+1];
         var previous = x.images[currentIndex-1];
@@ -161,6 +168,7 @@ function updateGallery(){
             if (!currentElement) {
                 currentElement = document.createElement('img');
                 imageDiv.appendChild(currentElement);
+                // imageDiv.prop('visibility', 'visible');
 
             }
             
