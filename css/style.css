@@ -78,22 +78,27 @@ padding-left: 75px;
 .slider {
   position: relative;
   flex-direction: row;
-  
 }
 
-.button-control {
-  position: relative;
+/* slider arrows */
 
+/* Next & previous buttons */
+
+
+
+.clothesback, .clothesforth{
+  cursor: pointer;
+  position: relative;
 }
 
 .clothesback {
-  text-decoration: none;
+  right: 20%;
+}
+.clothesforth {
+  left: 20%;
 
 }
-.clothesforth{
-  
-  float: right;
-}
+
 .slider-animating {
   transition: ease-in-out 0.5s all;
 }
@@ -104,12 +109,6 @@ padding-left: 75px;
   width: 100%;
 }
 
-/*.image-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-}*/
 
 button {
   border: 1px solid black;

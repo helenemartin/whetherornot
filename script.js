@@ -6,7 +6,7 @@ var advice = {
     
         "1": {text:"Very likely", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/jaegercoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
         "0.80": {text:"Likely", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg", "img/mexxcoat.jpg", "img/nicolefahrijacket.jpg"]},
-        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg"]},
+        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg", "img/drapedrapegreydress.jpg"]},
         "0.10": {text:"none", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
 }
 var currentIndex = 0;
@@ -102,8 +102,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         var x = clothingRecommandation(data);
         console.log("image", x);
         //go find html, recreate image
-        
-      
+        appendImages();
         updateGallery();
        
         whereToPut.find(".location").text("You are in " + city);
@@ -120,67 +119,54 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
 }
 
-// function appendImages(){
-//     var x = clothingRecommandation(currentData);
-//      for (i=0; i<x.images.length;i++);
-//         var imageUrl = x.images[i];
-//     currentElement.setAttribute('src', imageUrl); 
-     
+function appendImages(){
+    var imageCollection = clothingRecommandation(currentData);
+    var imageDiv = document.querySelector('.slider');
+     for (i=0; i<imageCollection.images.length;i++){
+        var imageUrl = imageCollection.images[i];
+        var newElement = document.createElement('img');
+        imageDiv.appendChild(newElement);
+        newElement.setAttribute('src', imageUrl); 
 
-// }
+     }
+    
+}
 
 function updateGallery(){
-        var x = clothingRecommandation(currentData);
+        var imageCollection = clothingRecommandation(currentData);
         if (currentIndex < 0){
-            currentIndex = x.images.length-1;
+            currentIndex = imageCollection.images.length-1;
 
-        } else if(currentIndex >= x.images.length) {
+        } else if(currentIndex > imageCollection.images.length) {
             currentIndex = 0;
 
         }
       var imageDiv = document.querySelector('.slider');
    
         imageDiv.style.left= 0;
-        // imageDiv.prop('visibility', 'hidden');
-        //prevents propagation of image even before the image is appended
-        // imageDiv.innerHTML= '';
-
-         var current = x.images[currentIndex];
-        var next = x.images[currentIndex+1];
-        var previous = x.images[currentIndex-1];
-        if (currentIndex === 0){
-            // currentIndex = x.images.length-1;
-            var lastImage = x.images[x.images.length-1];
-            previous = lastImage;
+        var current = imageCollection.images[currentIndex];
+        // var next = imageCollection.images[currentIndex+1];
+        // var previous = imageCollection.images[currentIndex-1];
+        if (currentIndex < 0){
+            var lastImage = imageCollection.images[imageCollection.images.length-1];
+            current = lastImage;
 
         }
 
-        else if (currentIndex === (x.images.length-1)) {
-            // currentIndex = 0;
-            var firstImage = x.images[0];
+        else if (currentIndex > (imageCollection.images.length-1)) {
+            var firstImage = imageCollection.images[0];
             next = firstImage;
         }
 
-            var galleryImages = [previous, current, next];
-            var galleryElements = imageDiv.children;
-            galleryImages.forEach(function(imageUrl,index){
-            var currentElement = galleryElements[index];
-            if (!currentElement) {
-                currentElement = document.createElement('img');
-                imageDiv.appendChild(currentElement);
-                // imageDiv.prop('visibility', 'visible');
+            // var galleryImages = [previous, current, next];
+            // var galleryElements = imageDiv.children;
+            // galleryImages.forEach(function(imageUrl,index){
+            // var currentElement = galleryElements[index];
 
-            }
-            
-            //set src
-           
-            // set as src= x.image
-            currentElement.setAttribute('src', imageUrl); 
-
-        });
+        
 
         var slider = document.querySelector('.slider');
-        slider.style.left = ("-100%");
+        // slider.style.left = ("-100%");
 
 }
 
@@ -247,6 +233,7 @@ function moveImageLeft () {
     var slides = $(document).find('.slider img');
     //play with line 231 check length of slider then check if the left attribute is equal the maximum %
     slider.classList.add('slider-animating');
+    //to do
     var isAtItsPlace = slider.style.left === 0 + '%';
     console.log(isAtItsPlace, "Hello left");
     console.log(slider.style.left, "so stylish left");
@@ -257,6 +244,7 @@ function moveImageLeft () {
         
     } else {
         var left = parseFloat(slider.style.left) || 0;
+        //247
         slider.style.left= 0;
     }
     slider.addEventListener("transitionend", function onTransitionEnd(){
@@ -282,6 +270,7 @@ function moveImageRight () {
         
     } else {
     var left = parseFloat(slider.style.left) || 0;
+    //to do
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
     }
     slider.addEventListener("transitionend", function onTransitionEnd(){
