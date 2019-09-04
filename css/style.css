@@ -77,7 +77,7 @@ padding-left: 75px;
 
 .slider {
   position: relative;
-  flex-direction: row;
+  /*flex-direction: row;*/
 }
 
 /* slider arrows */
@@ -89,15 +89,20 @@ padding-left: 75px;
 .clothesback, .clothesforth{
   cursor: pointer;
   position: relative;
+  display: inline-block;
 }
 
-.clothesback {
+.carousel-nav {
+  border: 2px solid red;
+
+}
+/*.clothesback {
   right: 20%;
 }
 .clothesforth {
   left: 20%;
 
-}
+}*/
 
 .slider-animating {
   transition: ease-in-out 0.5s all;
