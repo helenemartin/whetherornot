@@ -1,14 +1,14 @@
 body {
   font-family: Futura, Arial, sans-serif;
-  margin: 0px auto;
+  margin: 0;
   font-size: 14;
   color: #666666;
 }
 
-.wrapper {
+/*.wrapper {
   width: 100vw;
   height: 100vh; 
-}
+}*/
 
 
 header {
@@ -20,18 +20,19 @@ header {
 
 
 .trns-text {
-  background: url(https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)   20px 20px no-repeat;
+  background: url(https://img.freepik.com/free-photo/colorful-dramatic-sky-with-cloud-sunset-sky-with-sun-background_33736-1538.jpg?size=626&ext=jpg)   20px 20px no-repeat;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  /* Below is not needed */
   display:block;
-  font-size: 200px;
+  font-size: 120px;
   font-family: arial;
   text-align: center;
-  margin-top: -20px;
-  font-weight: bold;
-  letter-spacing: -25px;
+  font-weight: 700;
+  letter-spacing: 10px;
   background-size: cover;
+  background-position: -87% 15%;
+  margin: 0;
+
 }
 
 .page-container {
@@ -40,7 +41,7 @@ header {
 .flex-container{
   padding-top: 20px;
   display:flex;
-  flex-direction: row;  
+  flex-direction: column;  
 }
 
 #forecast {
