@@ -23,6 +23,11 @@ header {
   background: url(https://img.freepik.com/free-photo/colorful-dramatic-sky-with-cloud-sunset-sky-with-sun-background_33736-1538.jpg?size=626&ext=jpg)   20px 20px no-repeat;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+      -webkit-text-stroke: 4px rgba(255,255,255,.6);
+    text-stroke: 4px rgba(255,255,255,.6);
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: transparent;
   display:block;
   font-size: 120px;
   font-family: arial;
