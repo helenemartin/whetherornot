@@ -17,8 +17,21 @@ header {
   border-bottom: 2px dotted #e5e2e0;
 }
 
-h1 {
-  font-size:50px;
+
+
+.trns-text {
+  background: url(https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)   20px 20px no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  /* Below is not needed */
+  display:block;
+  font-size: 200px;
+  font-family: arial;
+  text-align: center;
+  margin-top: -20px;
+  font-weight: bold;
+  letter-spacing: -25px;
+  background-size: cover;
 }
 
 .page-container {
