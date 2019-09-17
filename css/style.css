@@ -2,14 +2,17 @@ body {
   font-family: Futura, Arial, sans-serif;
   margin: 0;
   font-size: 14;
-  background-color: #f5f4ed;
+  background-color: #eadbbe;
 }
 
-/*.wrapper {
+.wrapper {
   width: 100vw;
   height: 100vh; 
-}*/
+}
 
+img {
+  width: 50%;
+}
 
 header {
   text-align: center;
@@ -52,7 +55,7 @@ header {
 }
 
 #forecast {
-  
+  width: 30%;
   float:left;
   font-family: Gill Sans, Arial, sans-serif;
   font-size: 18px;
@@ -100,6 +103,11 @@ padding-left: 75px;
   position: relative;
   /*flex-direction: row;*/
 }
+.slider img {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
 
 /* slider arrows */
 
@@ -126,15 +134,11 @@ padding-left: 75px;
 
 }*/
 
-.slider-animating {
+/*.slider-animating {
   transition: ease-in-out 0.5s all;
-}
+}*/
 
-.slider img {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
+
 
 
 button {
