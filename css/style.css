@@ -2,7 +2,7 @@ body {
   font-family: Futura, Arial, sans-serif;
   margin: 0;
   font-size: 14;
-  background-color: #eadbbe;
+  background-color: #f5f4ed;
 }
 
 .wrapper {
@@ -45,9 +45,9 @@ header {
 
 
 
-.page-container {
+/*.page-container {
   position: relative;
-}
+}*/
 .flex-container{
   padding-top: 20px;
   display:flex;
@@ -211,12 +211,12 @@ button {
 
 
 /* other spinner */
-@media (min-width: 500px) {
+/*@media (min-width: 500px) {
   .slider img {
     width: 30%;
   }
 
-}
+}*/
 
 @media (min-width: 620px) {
 
@@ -225,7 +225,7 @@ button {
     height: 200px;
   }
   .slider img {
-    width: 100%;
+    width: 40%;
   }
   
   #clothes {
