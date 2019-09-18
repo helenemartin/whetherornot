@@ -21,7 +21,7 @@ header {
     text-fill-color: transparent;
     color: transparent;
   display:block;
-  font-size: 120px;
+  font-size: 56px;
   font-family: arial;
   text-align: center;
   font-weight: 700;
@@ -60,7 +60,7 @@ button {
     background-repeat: no-repeat;
     background-image: url(../img/spinner1.jpg);
    /* border: 2px dashed;*/
-   background-color: #f5f4ed;
+    background-color: #fff;
     animation: mannequin 500ms infinite alternate;
 }
 
@@ -167,6 +167,10 @@ Slider */
   }
   .carousel {
     height: 500px;
+  }
+
+  .trns-text {
+    font-size: 120px;
   }
 
 }
