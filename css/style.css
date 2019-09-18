@@ -5,22 +5,11 @@ body {
   background-color: #f5f4ed;
 }
 
-.wrapper {
-  width: 100vw;
-  height: 100vh; 
-}
-
-img {
-  width: 50%;
-}
-
 header {
   text-align: center;
   background-color: #fdfdfd;
   border-bottom: 2px dotted #e5e2e0;
 }
-
-
 
 .trns-text {
   background: url(https://img.freepik.com/free-photo/colorful-dramatic-sky-with-cloud-sunset-sky-with-sun-background_33736-1538.jpg?size=626&ext=jpg)   20px 20px no-repeat;
@@ -45,239 +34,111 @@ header {
 
 
 
-/*.page-container {
-  position: relative;
-}*/
-.flex-container{
-  padding-top: 20px;
-  display:flex;
-  flex-direction: column;  
-}
-
-#forecast {
-  width: 30%;
-  float:left;
+#j-forecast {
+  width: 100%;
   font-family: Gill Sans, Arial, sans-serif;
-  font-size: 18px;
-  margin: 20px;
+  font-size: 1.5rem;
   /*justify-content: flexstart;*/
-  line-height: 1.8em;
+  line-height: 1.8rem;
   /*flex-direction: row;*/
 }
 
-#forecast.text {
+#j-forecast .text {
+  width: 50%;
   text-align: left;
   padding-top: 14px;
   padding-left: 40px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-#clothes {
-  width: 60%;
-  padding-left: 30%;
-}
-
-.clothes-wrapper {
-  padding-top: 15px;
-  position:absolute;
-}
-
-/*.clothes-wrapper p{
-padding-bottom: 15px;
-padding-left: 75px;
-}*/
-#nextDate {
-  /*visibility: hidden;*/
-}
-.hiddenButton {
-  /*color: black;*/
-  visibility: hidden;
+/* =======
+Slider */
+.clothes-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .carousel {
-  width: 60%;
   white-space: nowrap;
   overflow: hidden;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 955px;
+ 
 }
 
-.slider {
-  position: relative;
-  /*flex-direction: row;*/
-}
-.slider img {
+.j-slider img {
   position: relative;
   display: inline-block;
-  width: 50%;
+  width: 20%;
 }
-
-/* slider arrows */
-
-/* Next & previous buttons */
-
-
 
 .clothesback, .clothesforth{
   cursor: pointer;
-  padding: 50% 0;
+  padding: 2rem;
   vertical-align: top;
 
 }
 
-.carousel-nav {
-  display: inline-block;
-
-}
-/*.clothesback {
-  right: 20%;
-}
-.clothesforth {
-  left: 20%;
-
-}*/
-
-/*.slider-animating {
+.j-slider-animating {
   transition: ease-in-out 0.5s all;
-}*/
-
-
-
-
-button {
-  border: 1px solid black;
-  /*position: absolute;*/
-  text-align: right; 
-  visibility: none;
-  
 }
-
-/* spinner */
-
-.loading-wrapper {
-    display: block;
-    position: fixed;
-    text-align:center;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    /*transform: translate(-50%,-50%);*/
-
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(../img/spinner1.jpg);
-   /* border: 2px dashed;*/
-   background-color: white;
-    animation: mannequin 500ms infinite alternate;
+.slider {
+  position: absolute;
+  width: 500%;
 }
 
 
-
-.loading-wrapper .indicator-text {
-  display: inline-block;
-    font-family: monospace;
-    color: black;
-    font-size: 2em;
-    margin: 200px 190px;
-}
-
-
-@keyframes mannequin {
-
-  0% {
-  
-    background-image: url(../img/spinner1.jpg);
-  }
- 
-  20% {
-    background-image: url(../img/spinner2.jpg);
-
-  }
-
-  40% {
-    background-image: url(../img/spinner3.jpg);
-  }
-
-  60% {
-    background-image: url(../img/spinner4.jpg);
-  }
-} 
-   /*100% {
-    background: url(../images/30.jpg) no-repeat;
-}
-*/
-
- 
-
-
-/* other spinner */
-/*@media (min-width: 500px) {
-  .slider img {
-    width: 30%;
-  }
-
-}*/
-
-@media (min-width: 620px) {
-
-
-  .flex-container{
-    height: 200px;
-  }
-  .slider img {
-    width: 40%;
-  }
-  
-  #clothes {
-    
-    margin: 0 auto;
-  }
-  /*#clothes-wrapper p {
-    padding-bottom: 15px;
-    padding-left: 53px;
-  }*/
-  #forecast {
-    /*width: 100%;*/
-    margin: 0 auto;
-
-  }
-
-  button#nextDate {
-  width: 50%;
-  text-align: center;
-  }
-
-}
 @media (min-width: 800px) {
-  .flex-container{
-    height: 200px;
-    flex-direction: column;
-    
+  .flex-container {
+    display: flex;
+    flex-direction: row;
   }
-  #forecast {
-  /*width: 60%;*/
-  /*float:left;*/
-  width: calc(40% - 40px);
-  font-family: Gill Sans, Arial, sans-serif;
-  font-size: 18px;
-  margin: 20px;
-  text-align:left;
-  line-height: 1.8em;
-
-  }
-
-  #clothes {
-    /*width: calc(80% - 40px);*/
-    padding-left: 10%;
-    align-items: center;
-
-  }
-
-  button#nextDate, button#prevDate {
-    margin-top: 20%;
-    margin-left: 10%;
-    width: 22%;
-    text-align: center;
+  .carousel {
+    height: 500px;
   }
 
 }
+
+@media (min-width: 985px) {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .carousel {
+    height: 500px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

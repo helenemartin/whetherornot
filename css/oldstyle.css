@@ -1,0 +1,280 @@
+body {
+  font-family: Futura, Arial, sans-serif;
+  margin: 0;
+  font-size: 14;
+  background-color: #f5f4ed;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh; 
+}
+
+img {
+  width: 50%;
+}
+
+header {
+  text-align: center;
+  background-color: #fdfdfd;
+  border-bottom: 2px dotted #e5e2e0;
+}
+
+
+
+.trns-text {
+  background: url(https://img.freepik.com/free-photo/colorful-dramatic-sky-with-cloud-sunset-sky-with-sun-background_33736-1538.jpg?size=626&ext=jpg)   20px 20px no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+      -webkit-text-stroke: 4px rgba(255,255,255,.6);
+    text-stroke: 4px rgba(255,255,255,.6);
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: transparent;
+  display:block;
+  font-size: 120px;
+  font-family: arial;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 10px;
+  background-size: cover;
+  background-position: -87% 15%;
+  margin: 0;
+
+}
+
+
+
+/*.page-container {
+  position: relative;
+}*/
+.flex-container{
+  padding-top: 20px;
+  display:flex;
+  flex-direction: column;  
+}
+
+#j-forecast {
+  width: 30%;
+  float:left;
+  font-family: Gill Sans, Arial, sans-serif;
+  font-size: 18px;
+  margin: 20px;
+  /*justify-content: flexstart;*/
+  line-height: 1.8em;
+  /*flex-direction: row;*/
+}
+
+#j-forecast.text {
+  text-align: left;
+  padding-top: 14px;
+  padding-left: 40px;
+}
+
+#j-clothes {
+  width: 60%;
+  padding-left: 30%;
+}
+
+
+
+/*.clothes-wrapper p{
+padding-bottom: 15px;
+padding-left: 75px;
+}*/
+#nextDate {
+  /*visibility: hidden;*/
+}
+.hiddenButton {
+  /*color: black;*/
+  visibility: hidden;
+}
+
+.carousel {
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.j-slider {
+  position: relative;
+  /*flex-direction: row;*/
+}
+.j-slider img {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+
+/* slider arrows */
+
+/* Next & previous buttons */
+
+
+
+.clothesback, .clothesforth{
+  cursor: pointer;
+  padding: 50% 0;
+  vertical-align: top;
+
+}
+
+.carousel-nav {
+  display: inline-block;
+
+}
+/*.clothesback {
+  right: 20%;
+}
+.clothesforth {
+  left: 20%;
+
+}*/
+
+.j-slider-animating {
+  transition: ease-in-out 0.5s all;
+}
+
+
+
+
+button {
+  border: 1px solid black;
+  /*position: absolute;*/
+  text-align: right; 
+  visibility: none;
+  
+}
+
+/* spinner */
+
+.loading-wrapper {
+    display: block;
+    position: fixed;
+    text-align:center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /*transform: translate(-50%,-50%);*/
+
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/spinner1.jpg);
+   /* border: 2px dashed;*/
+   background-color: white;
+    animation: mannequin 500ms infinite alternate;
+}
+
+
+
+.loading-wrapper .indicator-text {
+  display: inline-block;
+    font-family: monospace;
+    color: black;
+    font-size: 2em;
+    margin: 200px 190px;
+}
+
+
+@keyframes mannequin {
+
+  0% {
+  
+    background-image: url(../img/spinner1.jpg);
+  }
+ 
+  20% {
+    background-image: url(../img/spinner2.jpg);
+
+  }
+
+  40% {
+    background-image: url(../img/spinner3.jpg);
+  }
+
+  60% {
+    background-image: url(../img/spinner4.jpg);
+  }
+} 
+   /*100% {
+    background: url(../images/30.jpg) no-repeat;
+}
+*/
+
+ 
+
+
+/* other spinner */
+/*@media (min-width: 500px) {
+  .j-slider img {
+    width: 30%;
+  }
+
+}*/
+
+@media (min-width: 620px) {
+
+
+  .flex-container{
+    height: 200px;
+  }
+  .j-slider img {
+    width: 40%;
+  }
+  
+  #j-clothes {
+    
+    margin: 0 auto;
+  }
+  /*#j-clothes-wrapper p {
+    padding-bottom: 15px;
+    padding-left: 53px;
+  }*/
+  #j-forecast {
+    /*width: 100%;*/
+    margin: 0 auto;
+
+  }
+
+  button#nextDate {
+  width: 50%;
+  text-align: center;
+  }
+
+}
+@media (min-width: 800px) {
+  .flex-container{
+    height: 200px;
+    flex-direction: column;
+    
+  }
+  #j-forecast {
+  /*width: 60%;*/
+  /*float:left;*/
+  width: calc(40% - 40px);
+  font-family: Gill Sans, Arial, sans-serif;
+  font-size: 18px;
+  margin: 20px;
+  text-align:left;
+  line-height: 1.8em;
+
+  }
+
+  #j-clothes {
+    /*width: calc(80% - 40px);*/
+    padding-left: 10%;
+    align-items: center;
+
+  }
+
+  button#nextDate, button#prevDate {
+    margin-top: 20%;
+    margin-left: 10%;
+    width: 22%;
+    text-align: center;
+  }
+
+}

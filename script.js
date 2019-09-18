@@ -121,7 +121,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 
 function appendImages(){
     var imageCollection = clothingRecommandation(currentData);
-    var imageDiv = document.querySelector('.slider');
+    var imageDiv = document.querySelector('.j-slider');
      for (i=0; i<imageCollection.images.length;i++){
         var imageUrl = imageCollection.images[i];
         var newElement = document.createElement('img');
@@ -141,7 +141,7 @@ function updateGallery(){
             currentIndex = 0;
 
         }
-      var imageDiv = document.querySelector('.slider');
+      var imageDiv = document.querySelector('.j-slider');
    
         imageDiv.style.left= 0;
         var current = imageCollection.images[currentIndex];
@@ -165,7 +165,7 @@ function updateGallery(){
 
         
 
-        var slider = document.querySelector('.slider');
+        var slider = document.querySelector('.j-slider');
         // slider.style.left = ("-100%");
 
 }
@@ -183,7 +183,7 @@ function areDatesEqual(date1, date2){
 }
 
 
-// geoLocation(retrieveWeather, today, $('#forecast'), $('#clothes'));
+// geoLocation(retrieveWeather, today, $('#j-forecast'), $('#j-clothes'));
 
 function togglePreviousButton(date, today){
     var previousButton = document.querySelector('#prevDate');
@@ -213,7 +213,7 @@ $('#nextDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()+1);
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);  
-    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    geoLocation(retrieveWeather, currentDate, $('#j-forecast'), $('#j-clothes'));
 });
  
 
@@ -221,16 +221,16 @@ $('#prevDate').click(function(event) {
     currentDate.setDate(currentDate.getDate()-1);
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
-    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    geoLocation(retrieveWeather, currentDate, $('#j-forecast'), $('#j-clothes'));
 });
 
 
 
 
 function moveImageLeft () {
-     var slider = document.querySelector('.slider');
+     var slider = document.querySelector('.j-slider');
     // console.log("hello", slider.style);
-    var slides = $(document).find('.slider img');
+    var slides = $(document).find('.j-slider img');
     //play with line 231 check length of slider then check if the left attribute is equal the maximum %
     slider.classList.add('slider-animating');
     //to do
@@ -258,8 +258,8 @@ function moveImageLeft () {
 
 function moveImageRight () {
 
-    var slider = document.querySelector('.slider');
-    var slides = $(document).find('.slider img');
+    var slider = document.querySelector('.j-slider');
+    var slides = $(document).find('.j-slider img');
     slider.classList.add('slider-animating');
     var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';
     console.log(isAtItsPlace, "Hello");
@@ -320,7 +320,7 @@ $(document).ready(function() {
     
     togglePreviousButton(currentDate, today);
     toggleNextButton(currentDate, today);
-    geoLocation(retrieveWeather, currentDate, $('#forecast'), $('#clothes'));
+    geoLocation(retrieveWeather, currentDate, $('#j-forecast'), $('#j-clothes'));
 });
 
 //clear interval here
