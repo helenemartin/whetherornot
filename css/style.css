@@ -32,7 +32,73 @@ header {
 
 }
 
+button {
+  border: 1px solid black;
+  /*position: absolute;*/
+  text-align: right; 
+  visibility: none;
+  
+}
 
+/*========
+ Image Spiner
+ ========= */
+
+ .loading-wrapper {
+    display: block;
+    position: fixed;
+    text-align:center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /*transform: translate(-50%,-50%);*/
+
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../img/spinner1.jpg);
+   /* border: 2px dashed;*/
+   background-color: #f5f4ed;
+    animation: mannequin 500ms infinite alternate;
+}
+
+
+
+.loading-wrapper .indicator-text {
+  display: inline-block;
+    font-family: monospace;
+    color: black;
+    font-size: 2em;
+    margin: 200px 190px;
+}
+
+
+@keyframes mannequin {
+
+  0% {
+  
+    background-image: url(../img/spinner1.jpg);
+  }
+ 
+  20% {
+    background-image: url(../img/spinner2.jpg);
+
+  }
+
+  40% {
+    background-image: url(../img/spinner3.jpg);
+  }
+
+  60% {
+    background-image: url(../img/spinner4.jpg);
+  }
+} 
+
+/* ==========
+  Spiner ends
+  =========== */
 
 #j-forecast {
   width: 100%;
@@ -60,6 +126,7 @@ Slider */
   flex-direction: row;
   align-items: center;
 }
+
 
 .carousel {
   white-space: nowrap;
