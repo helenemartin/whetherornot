@@ -107,8 +107,8 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
        
         whereToPut.find(".location", ".todayDate").text(city  + ", " + formatedDate + ",");
         // whereToPut.find(".todaysDate").text(formatedDate);
-        whereToPut.find(".temperatureMax").text("Oh delightful, it is " + tempcelsius + " deg, today!");
-        whereToPut.find(".precipProbability").text(x.text + ".");
+        whereToPut.find(".temperatureMax", "precipProbability").text("Oh delightful, it is " + tempcelsius + " deg, today!" + x.text + ".");
+        // whereToPut.find(".precipProbability").text();
 
 
         // spinner  
