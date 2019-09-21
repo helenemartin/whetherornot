@@ -4,10 +4,10 @@ var months = ['January','February','March','April','May','June','July','August',
 
 var advice = {
     
-        "1": {text:"Very likely", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/jaegercoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
-        "0.80": {text:"Likely", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg", "img/mexxcoat.jpg", "img/nicolefahrijacket.jpg"]},
-        "0.64": {text:"Unlikely", images: ["img/georgesdress.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg", "img/drapedrapegreydress.jpg"]},
-        "0.10": {text:"none", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
+        "1": {text:"What a rainy day", images:["img/burberry.jpg", "img/mexxcoat.jpg", "img/jaegercoat.jpg", "img/zararaincoat.jpg", "img/jaegercoat.jpg"]},
+        "0.80": {text:"It will rain", images: ["img/mexxcoat.jpg", "img/nicolefahrijacket.jpg", "img/jkbennettbrown-with-cardi.jpg", "img/mexxcoat.jpg", "img/nicolefahrijacket.jpg"]},
+        "0.64": {text:"It won't rain", images: ["img/georgesdress.jpg", "img/zararedress.jpg", "img/jkbennettbrown.jpg", "img/annedemeulester.jpg", "img/drapedrapegreydress.jpg"]},
+        "0.10": {text:"It will be sunny", images: ["img/bretonnecklace.jpg", "img/warehousedress.jpg","img/oasisdress.jpg", "img/hobbesdress.jpg", "img/drapedrapegreydress.jpg"]},
 }
 var currentIndex = 0;
 var currentData;
@@ -105,10 +105,10 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         appendImages();
         updateGallery();
        
-        whereToPut.find(".location").text("You are in " + city);
+        whereToPut.find(".location").text(city);
         whereToPut.find(".todaysDate").text(formatedDate);
-        whereToPut.find(".temperatureMax").text("Max temperature: " + tempcelsius + " degrees");
-        whereToPut.find(".precipProbability").text("Chance of rain: " + x.text );
+        whereToPut.find(".temperatureMax").text("Oh delightful, it is " + tempcelsius + " deg, today");
+        whereToPut.find(".precipProbability").text(x.text );
 
 
         // spinner  

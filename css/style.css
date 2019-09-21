@@ -1,3 +1,18 @@
+
+
+
+@font-face {
+    font-family: 'Wildera uppercase';
+    src: local('Wildera-Regular'), url("../css/fonts/Wildera-Regular.otf") format("opentype");
+}
+
+/*@font-face {
+    font-family: "Wildera";
+    font-weight: bold;
+    src: url("css/fonts/Wildera-Regular.otf") format("opentype");
+}*/
+
+
 body {
   font-family: Futura, Arial, sans-serif;
   margin: 0;
@@ -10,6 +25,7 @@ header {
   background-color: #fdfdfd;
   border-bottom: 2px dotted #e5e2e0;
 }
+
 
 .trns-text {
   background: url(https://img.freepik.com/free-photo/colorful-dramatic-sky-with-cloud-sunset-sky-with-sun-background_33736-1538.jpg?size=626&ext=jpg)   20px 20px no-repeat;
@@ -102,7 +118,9 @@ button {
 
 #j-forecast {
   width: 100%;
-  font-family: Gill Sans, Arial, sans-serif;
+  font-family: 'La Belle Aurore', cursive;
+  color: #704214;
+  /*font-family: Gill Sans, Arial, sans-serif;*/
   font-size: 1.5rem;
   /*justify-content: flexstart;*/
   line-height: 1.8rem;
@@ -116,6 +134,8 @@ button {
   padding-left: 40px;
   margin: 0 auto;
   padding: 2rem;
+  
+  
 }
 
 /* =======
@@ -160,13 +180,15 @@ Slider */
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 980px) {
   .flex-container {
     display: flex;
     flex-direction: row;
   }
   .carousel {
-    height: 500px;
+    padding-top: 2em;
+    height: 550px;
+    width: 50%;
   }
 
   .trns-text {
@@ -175,7 +197,7 @@ Slider */
 
 }
 
-@media (min-width: 985px) {
+/*@media (min-width: 985px) {
   .flex-container {
     display: flex;
     flex-direction: row;
@@ -184,7 +206,7 @@ Slider */
     height: 500px;
   }
 
-}
+}*/
 
 
 

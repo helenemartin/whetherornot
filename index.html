@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=La+Belle+Aurore&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Whether or Not</title>
     <!--<script>document.documentElement.className="loading-wraper";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script> -->
@@ -18,11 +19,12 @@
         <div class="flex-container">
             <div id="j-forecast">
               <div class= "text">
-                <div class="location"></div>
-                <div class="todaysDate"></div>
-                <div class="temperatureMax"></div>
-                <div class="precipProbability"></div>
-                <div class="suggestions"></div>
+                <p class="location"></p>
+                <time datetime class="todaysDate"></time>
+                <p class="temperatureMax"></p>
+                <p class="precipProbability"></p>
+                <p class="suggestions"></p>
+                <p>I wonder what shall I wear today and tomorrow</p>
                 <!-- <a id="prevDate" class="hiddenButton" onclick="">&#10094;</a>
                 <a id="nextDate" class="hiddenButton" onclick="">&#10095;</a> -->
                 <button id="prevDate" class="hiddenButton">Previous day</button>
