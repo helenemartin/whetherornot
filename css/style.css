@@ -79,7 +79,9 @@ button {
     background-color: #fff;
     animation: mannequin 500ms infinite alternate;
 }
-
+.loading-wrapper img{
+  width: 20%;
+}
 
 
 .loading-wrapper .indicator-text {
@@ -121,21 +123,25 @@ button {
   font-family: 'La Belle Aurore', cursive;
   color: #704214;
   /*font-family: Gill Sans, Arial, sans-serif;*/
-  font-size: 1.5rem;
-  /*justify-content: flexstart;*/
-  line-height: 1.8rem;
+ 
   /*flex-direction: row;*/
 }
 
-#j-forecast .text {
-  width: 50%;
+.text {
+  width: 100%;
   text-align: left;
-  padding-top: 14px;
-  padding-left: 40px;
+  /*padding-top: 1px;
+  padding-left: 4px;*/
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   
   
+}
+
+span {
+  font-size: .6em;
 }
 
 /* =======
@@ -187,12 +193,22 @@ Slider */
   }
   .carousel {
     padding-top: 2em;
-    height: 550px;
-    width: 50%;
+    height: 623px;
+    width: 59%;
   }
 
   .trns-text {
     font-size: 120px;
+  }
+  .text {
+    width: 80%;
+    text-align: left;
+    /* padding-top: 14px; */
+    /* padding-left: 40px; */
+    margin: 0 auto;
+    padding: 2rem;
+    font-size: 2.5rem;
+    line-height: 0.78em;
   }
 
 }

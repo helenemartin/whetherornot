@@ -105,10 +105,10 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         appendImages();
         updateGallery();
        
-        whereToPut.find(".location", ".todayDate").text(city  + ", " + formatedDate);
+        whereToPut.find(".location", ".todayDate").text(city  + ", " + formatedDate + ",");
         // whereToPut.find(".todaysDate").text(formatedDate);
-        whereToPut.find(".temperatureMax").text("Oh delightful, it is " + tempcelsius + " deg, today");
-        whereToPut.find(".precipProbability").text(x.text );
+        whereToPut.find(".temperatureMax").text("Oh delightful, it is " + tempcelsius + " deg, today!");
+        whereToPut.find(".precipProbability").text(x.text + ".");
 
 
         // spinner  

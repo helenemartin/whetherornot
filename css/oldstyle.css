@@ -168,6 +168,10 @@ button {
     animation: mannequin 500ms infinite alternate;
 }
 
+img .loading-wrapper {
+  width: 20%;
+}
+
 
 
 .loading-wrapper .indicator-text {
