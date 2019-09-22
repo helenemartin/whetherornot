@@ -134,7 +134,7 @@ button {
   padding-left: 4px;*/
   margin: 0 auto;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   line-height: 1.8rem;
   
   
@@ -151,6 +151,7 @@ Slider */
   display: flex;
   flex-direction: row;
   align-items: center;
+  transform: rotate(3deg);
 }
 
 
@@ -185,6 +186,18 @@ Slider */
   width: 500%;
 }
 
+a#nextDate, a#prevDate {
+  margin-top: 2%;
+  margin-left: 10%;
+  width: 22%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+
+}
+a#nextDate:hover, a#prevDate:hover {
+  color: #6e8c8d;
+}
 
 @media (min-width: 980px) {
   .flex-container {
