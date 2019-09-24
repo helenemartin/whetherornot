@@ -169,14 +169,16 @@ Slider */
   position: relative;
   display: inline-block;
   width: 20%;
+  border-radius: 5px;
 }
 
-.clothesback, .clothesforth{
+.clothesback, .clothesforth {
   cursor: pointer;
-  padding: 2rem;
   vertical-align: top;
+  margin: 10%;
 
 }
+
 
 .j-slider-animating {
   transition: ease-in-out 0.5s all;
@@ -209,6 +211,7 @@ a#nextDate:hover, a#prevDate:hover {
     height: 623px;
     width: 59%;
   }
+  
 
   .trns-text {
     font-size: 120px;
@@ -216,6 +219,7 @@ a#nextDate:hover, a#prevDate:hover {
   .text {
     width: 80%;
     text-align: left;
+    text-indent: 30px;
     /* padding-top: 14px; */
     /* padding-left: 40px; */
     margin: 0 auto;
