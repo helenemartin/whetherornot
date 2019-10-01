@@ -25,12 +25,6 @@ function geoLocation(renderFunction, when, whereToPut, clothes) {
     
 }
 
-function chooseRandImages(images){
-    var randChoice = Math.floor (Math.random() * images.length);
-    console.log('chooseRandImages', randChoice, images, images[randChoice]);
-    return images[randChoice];
-
-}
 
 function clothingRecommandation(data){
  
@@ -103,7 +97,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
         console.log("image", x);
         //go find html, recreate image
         appendImages();
-        updateGallery();
+    
        
         whereToPut.find(".location", ".todayDate").text(city  + ", " + formatedDate + ",");
         // whereToPut.find(".todaysDate").text(formatedDate);
@@ -122,6 +116,7 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 function appendImages(){
     var imageCollection = clothingRecommandation(currentData);
     var imageDiv = document.querySelector('.j-slider');
+    imageDiv.style.left= 0 + '%';
      for (i=0; i<imageCollection.images.length;i++){
         var imageUrl = imageCollection.images[i];
         var newElement = document.createElement('img');
@@ -130,38 +125,6 @@ function appendImages(){
 
      }
     
-}
-
-function updateGallery(){
-        var imageCollection = clothingRecommandation(currentData);
-        if (currentIndex < 0){
-            currentIndex = imageCollection.images.length-1;
-
-        } else if(currentIndex > imageCollection.images.length) {
-            currentIndex = 0;
-
-        }
-      var imageDiv = document.querySelector('.j-slider');
-   
-        imageDiv.style.left= 0 + '%';
-        var current = imageCollection.images[currentIndex];
-        // var next = imageCollection.images[currentIndex+1];
-        // var previous = imageCollection.images[currentIndex-1];
-        if (currentIndex < 0){
-            var lastImage = imageCollection.images[imageCollection.images.length-1];
-            current = lastImage;
-
-        }
-
-        else if (currentIndex > (imageCollection.images.length-1)) {
-            var firstImage = imageCollection.images[0];
-            next = firstImage;
-        }
-
-
-        var slider = document.querySelector('.j-slider');
-        // slider.style.left = ("-100%");
-
 }
 
 
@@ -242,44 +205,26 @@ function moveImageRight () {
 
 
 
-var slideInterval;
-
-function startSliddingRight(){
-    console.log("starting go right function");
-    clearInterval(slideInterval);
-    slideInterval = window.setInterval(moveImageRight, 3000);
-};
-
-function startSliddingLeft(){
-    console.log("starting go left function");
-    clearInterval(slideInterval);
-    slideInterval = window.setInterval(moveImageLeft, 3000);
-};
-
-
-
 function handleRightButtonClick() {
      var slides = $(document).find('.j-slider img');
     var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';
     if(isAtItsPlace) {
-        console.log("finished");
+        //if at the end move to beginning
         slider.style.left = 0 + '%';
         return;
     }
     moveImageRight();
-    // startSliddingRight();
 }
 
 function handleLeftButtonClick() {
     var slides = $(document).find('.j-slider img');
     var isAtItsPlace = slider.style.left === 0 + '%';
     if(isAtItsPlace){
-        console.log("this is the beginning")
+        //if at the beginning move to the end
         slider.style.left = -(slides.length-1)*100 + '%';
         return;
     };
     moveImageLeft();
-    // startSliddingLeft();
 }
 
 
