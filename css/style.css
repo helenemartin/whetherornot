@@ -82,8 +82,8 @@ button {
     background-color: #fff;
     animation: mannequin 500ms infinite alternate;
 }
-.loading-wrapper img{
-  width: 20%;
+img .loading-wrapper {
+  width: 5%;
 }
 
 
@@ -131,7 +131,7 @@ button {
 }
 
 .text {
-  width: 100%;
+  width: 80%;
   text-align: left;
   /*padding-top: 1px;
   padding-left: 4px;*/
@@ -139,13 +139,12 @@ button {
   padding: 1rem;
   font-size: 1.2rem;
   line-height: 1.8rem;
-  text-indent: 5px;
-  
+  text-indent: 5px;  
   
 }
 
 span {
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 /* =======
@@ -194,9 +193,9 @@ Slider */
 
 a#nextDate, a#prevDate {
   margin-top: 2%;
-  margin-left: 10%;
+  margin-left: 18%;
   width: 22%;
-  text-align: center;
+  
   cursor: pointer;
   font-size: 1rem;
 
@@ -233,8 +232,8 @@ a#nextDate:hover, a#prevDate:hover {
     /* padding-left: 40px; */
     margin: 0 auto;
     padding: 2rem;
-    font-size: 2.5rem;
-    line-height: 0.78em;
+    font-size: 1.98rem;
+    line-height: 2.98rem;
   }
 
   .clothesback, .clothesforth {
@@ -244,6 +243,10 @@ a#nextDate:hover, a#prevDate:hover {
 
   }
 
+  a#nextDate, a#prevDate {
+    text-align: center;
+    margin-left: 9%;
+  }
 
 }
 
