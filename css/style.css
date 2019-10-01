@@ -12,9 +12,9 @@
     src: url("css/fonts/Wildera-Regular.otf") format("opentype");
 }*/
 
-/* * {
+ * {
     box-sizing: border-box;
- }*/
+ }
  
 body {
   font-family: Futura, Arial, sans-serif;
@@ -179,7 +179,7 @@ Slider */
 .clothesback, .clothesforth {
   cursor: pointer;
   vertical-align: top;
-  margin: 10%;
+  margin: 0 auto;
 
 }
 
@@ -235,6 +235,13 @@ a#nextDate:hover, a#prevDate:hover {
     padding: 2rem;
     font-size: 2.5rem;
     line-height: 0.78em;
+  }
+
+  .clothesback, .clothesforth {
+    cursor: pointer;
+    vertical-align: top;
+    margin: 10%;
+
   }
 
 
