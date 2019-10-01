@@ -12,7 +12,10 @@
     src: url("css/fonts/Wildera-Regular.otf") format("opentype");
 }*/
 
-
+/* * {
+    box-sizing: border-box;
+ }*/
+ 
 body {
   font-family: Futura, Arial, sans-serif;
   margin: 0;
@@ -134,14 +137,15 @@ button {
   padding-left: 4px;*/
   margin: 0 auto;
   padding: 1rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   line-height: 1.8rem;
+  text-indent: 5px;
   
   
 }
 
 span {
-  font-size: .6em;
+  font-size: 2rem;
 }
 
 /* =======
@@ -201,6 +205,8 @@ a#nextDate:hover, a#prevDate:hover {
   color: #6e8c8d;
 }
 
+
+
 @media (min-width: 980px) {
   .flex-container {
     display: flex;
@@ -216,6 +222,9 @@ a#nextDate:hover, a#prevDate:hover {
   .trns-text {
     font-size: 120px;
   }
+  .span {
+    font-size: 0.6rem;
+  }
   .text {
     width: 80%;
     text-align: left;
@@ -227,6 +236,7 @@ a#nextDate:hover, a#prevDate:hover {
     font-size: 2.5rem;
     line-height: 0.78em;
   }
+
 
 }
 
