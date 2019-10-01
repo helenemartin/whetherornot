@@ -143,7 +143,7 @@ function updateGallery(){
         }
       var imageDiv = document.querySelector('.j-slider');
    
-        imageDiv.style.left= 0;
+        imageDiv.style.left= 0 + '%';
         var current = imageCollection.images[currentIndex];
         // var next = imageCollection.images[currentIndex+1];
         // var previous = imageCollection.images[currentIndex-1];
@@ -158,12 +158,6 @@ function updateGallery(){
             next = firstImage;
         }
 
-            // var galleryImages = [previous, current, next];
-            // var galleryElements = imageDiv.children;
-            // galleryImages.forEach(function(imageUrl,index){
-            // var currentElement = galleryElements[index];
-
-        
 
         var slider = document.querySelector('.j-slider');
         // slider.style.left = ("-100%");
@@ -225,60 +219,25 @@ $('#prevDate').click(function(event) {
 });
 
 
+var slider = document.querySelector('.j-slider');
 
 
 function moveImageLeft () {
-     var slider = document.querySelector('.j-slider');
-    // console.log("hello", slider.style);
     var slides = $(document).find('.j-slider img');
-    //play with line 231 check length of slider then check if the left attribute is equal the maximum %
-    slider.classList.add('slider-animating');
-    //to do
-    var isAtItsPlace = slider.style.left === 0 + '%';
-    console.log(isAtItsPlace, "Hello left");
-    console.log(slider.style.left, "so stylish left");
-    console.log(0, "boohoo left");
-    if (isAtItsPlace){
-        console.log("is this the begining?");
-        clearInterval(slideInterval);
-        
-    } else {
-        var left = parseFloat(slider.style.left) || 0;
-        //247
-        slider.style.left= 0;
-    }
-    slider.addEventListener("transitionend", function onTransitionEnd(){
-        slider.classList.remove('slider-animating');
-        currentIndex = currentIndex -1;
-        updateGallery();
-        slider.removeEventListener("transitionend", onTransitionEnd);
-    })
+    var left = parseFloat(slider.style.left) || 0;
+    //247
+    slider.style.left= Math.max(left +100, -(slides.length+1) * +100) + '%';
+
 }
 
 
 function moveImageRight () {
 
-    var slider = document.querySelector('.j-slider');
     var slides = $(document).find('.j-slider img');
-    slider.classList.add('slider-animating');
-    var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';
-    console.log(isAtItsPlace, "Hello");
-    console.log(slider.style.left, "so stylish");
-    console.log(-(slides.length-1)*100, "boohoo");
-    if (isAtItsPlace){
-        console.log("is this the end?");
-        
-    } else {
     var left = parseFloat(slider.style.left) || 0;
     //to do
     slider.style.left= Math.max(left -100, (slides.length -1) * -100) + '%';
-    }
-    slider.addEventListener("transitionend", function onTransitionEnd(){
-        slider.classList.remove('slider-animating');
-        currentIndex = currentIndex +1;
-        updateGallery();
-        slider.removeEventListener("transitionend", onTransitionEnd);
-    })
+   
 }
 
 
@@ -300,13 +259,27 @@ function startSliddingLeft(){
 
 
 function handleRightButtonClick() {
+     var slides = $(document).find('.j-slider img');
+    var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';
+    if(isAtItsPlace) {
+        console.log("finished");
+        slider.style.left = 0 + '%';
+        return;
+    }
     moveImageRight();
-    startSliddingRight();
+    // startSliddingRight();
 }
 
 function handleLeftButtonClick() {
+    var slides = $(document).find('.j-slider img');
+    var isAtItsPlace = slider.style.left === 0 + '%';
+    if(isAtItsPlace){
+        console.log("this is the beginning")
+        slider.style.left = -(slides.length-1)*100 + '%';
+        return;
+    };
     moveImageLeft();
-    startSliddingLeft();
+    // startSliddingLeft();
 }
 
 
