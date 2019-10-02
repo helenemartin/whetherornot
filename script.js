@@ -203,8 +203,6 @@ function moveImageRight () {
    
 }
 
-
-
 function handleRightButtonClick() {
      var slides = $(document).find('.j-slider img');
     var isAtItsPlace = slider.style.left === -(slides.length-1)*100 + '%';

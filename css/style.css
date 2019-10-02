@@ -6,15 +6,6 @@
     src: local('Wildera-Regular'), url("../css/fonts/Wildera-Regular.otf") format("opentype");
 }
 
-/*@font-face {
-    font-family: "Wildera";
-    font-weight: bold;
-    src: url("css/fonts/Wildera-Regular.otf") format("opentype");
-}*/
-
- * {
-    box-sizing: border-box;
- }
  
 body {
   font-family: Futura, Arial, sans-serif;
@@ -82,10 +73,10 @@ button {
     background-color: #fff;
     animation: mannequin 500ms infinite alternate;
 }
-img .loading-wrapper {
+/*img .loading-wrapper {
   width: 5%;
 }
-
+*/
 
 .loading-wrapper .indicator-text {
   display: inline-block;
@@ -168,12 +159,12 @@ Slider */
  
 }
 
-.j-slider img {
+/*.j-slider img {
   position: relative;
   display: inline-block;
   width: 20%;
   border-radius: 5px;
-}
+}*/
 
 .clothesback, .clothesforth {
   cursor: pointer;
@@ -185,7 +176,7 @@ Slider */
 
 .j-slider-animating {
   transition: ease-in-out 0.5s all;
-  
+
 }
 .slider {
   position: absolute;
