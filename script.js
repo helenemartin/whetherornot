@@ -120,12 +120,15 @@ function appendImages(){
      for (i=0; i<imageCollection.images.length;i++){
         var imageUrl = imageCollection.images[i];
         var newElement = document.createElement('img');
+        //document.removeElement('img'); before appending image
+
         imageDiv.appendChild(newElement);
         newElement.setAttribute('src', imageUrl); 
 
      }
     
 }
+
 
 
 var currentDate = new Date();
