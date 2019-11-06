@@ -80,7 +80,7 @@ function formatTemperature(data){
 
 function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
     //var time = '2019-02-12T21:00:00';
-    var whenNumber = Math.ceil(when.getTime() / 1000);
+     whenNumber = Math.ceil(when.getTime() / 1000);
 
     $.ajax({
         url:`https://api.darksky.net/forecast/71d34a6ec505b1fb78d02e89a583eac3/${latitude},${longitude},${whenNumber}`,
@@ -116,17 +116,23 @@ function retrieveWeather(latitude, longitude, when, whereToPut, clothes){
 function appendImages(){
     var imageCollection = clothingRecommandation(currentData);
     var imageDiv = document.querySelector('.j-slider');
+    const imgElements = document.querySelectorAll('img');
+    const imgElementNum = imgElements.length;
+
+    if (imgElements.length !== 0) {
+        for (let i = 0; i < imgElementNum; i++) {
+            imgElements[i].remove();
+        };
+    }   
+
     imageDiv.style.left= 0 + '%';
      for (i=0; i<imageCollection.images.length;i++){
         var imageUrl = imageCollection.images[i];
         var newElement = document.createElement('img');
-        //document.removeElement('img'); before appending image
 
         imageDiv.appendChild(newElement);
         newElement.setAttribute('src', imageUrl); 
-
-     }
-    
+    } 
 }
 
 
