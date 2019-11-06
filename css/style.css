@@ -174,10 +174,6 @@ Slider */
 }
 
 
-.j-slider-animating {
-  transition: ease-in-out 0.5s all;
-
-}
 .slider {
   position: absolute;
   width: 500%;
