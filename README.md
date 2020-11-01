@@ -1,6 +1,10 @@
 # Whether or Not
 
-## What should I wear today? I don't want to get soaked... pretty please
+## What should I wear today? I don't want to get soaked...
+Wheter or not helps you personalise your wardrobe 7 days ahead!
+Now make that sure that stunning dress is on the 27th!
+
+https://github.com/helenemartin/whetherornot
 
 To run this app:
 
@@ -22,5 +26,5 @@ Open a port on your web browser:
 http://localhost:8080/
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+The first personnalisation attempt:
 ![Result](/img/screenshot.jpg "Whether or Not")
