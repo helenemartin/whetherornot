@@ -4,7 +4,7 @@
 Wheter or not helps you personalise your wardrobe 7 days ahead!
 Now make that sure that stunning dress is on the 27th!
 
-https://github.com/helenemartin/whetherornot
+https://helenemartin.github.io/whetherornot/
 
 To run this app:
 
